@@ -37,9 +37,48 @@ La música, en su manifestación, es una creación artística. Sin embargo, hoy 
 	\end{itemize}
 \end{itemize}
 
-% Las , este trabajo está enfocado a los estudiantes del nivel elemental de enseñanzas de música. 
-
-
+\section{Entrenamiento del oído}
+El entrenamiento auditivo es una actividad de desarrollo de la destreza que le permite al músico a reconocer distintas notas, intervalos y modos al escucharlos, sin tener acceso a ninguna herramienta ni partitura. El entrenamiento del oído tiene muchas similtudes con el uso del oído en la vida cotidiana: su propósito es diferenciar y entender auditivamente. En el caso de la música, son los sonidos de un instrumento; en la vida cotidiana serían las palabras e intonaciones de la voz.
+\par Dentro de este trabajo, se tratará sobre los elementos auditivos puramente sonoros, sin considerar los aspectos artísticos y emocionales que transmite la música. Los elementos esenciales del sonido son:
+\begin{itemize}
+	\item La altura: definida con un nombre (Do, Re; A, B)
+	\item La intensidad
+	\item La duracion
+\end{itemize}
+\par También se van a considerar las estructuras como:
+\begin{itemize}
+	\item Estructuras melódicas: modos y escalas
+	\item Estructuras armónicas: tonalidades, acordes
+	\item Ritmos
+\end{itemize}
+\par A continuación se definen los conceptos esenciales del sonido y música.
+\subsection{Notas musicales}
+Las notas musicales son sonidos con una determinada \gls{hz}. La altura de una nota es directamente proporcional a su frecuencia. Cada nota tiene su propio nombre:
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[width=4cm]{archivos/notas}
+		\caption{Sistema solfeo}
+		\label{fig:notas}
+	\end{subfigure}
+	~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
+	\begin{subfigure}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[width=4cm]{archivos/notas-anglo}
+		\caption{Sistema anglo-sajón}
+		\label{fig:notas-anglo}
+	\end{subfigure}
+	\caption{Nombres de las notas musicales}\label{notas}
+\end{figure}
+\par En este trabajo, se utilizará el sistema solfeo para referirse a las notas. Cada nota musical también puede representarse en un ordenador a través del protocólo \gls{midi}, tema que se abordará en los siguientes capítulos.
+\subsection{Octavas}
+\subsection{Melodía}
+\subsubsection{Modos}
+\subsubsection{Escalas}
+\subsection{Armonía}
+\subsubsection{Tonalidades}
+\subsubsection{Acordes}
 %\section{Estructura de un \glsentryshort{tfg}}
 \section{Problemas de enseñanza tradicional}
 
@@ -83,11 +122,10 @@ La música, en su manifestación, es una creación artística. Sin embargo, hoy 
 %
 %\end{description}
 
-Actualmente, la forma más eficiente del aprendizaje de música y preferida por los tutores es la asistencia a los conservatorios y escuelas de música de forma extracurricular. Por lo cual, el niño estudiante de música es obligado a atender a su escuela de primaria/secundaria y, durante su tiempo libre, a la escuela de música; también es obligado a la realización de los deberes de ambas durante su tiempo libre, lo cual podría generar falta de motivación, resentimiento y el síndrome de agotamiento (\textit{burnout}). Por otro lado, los alumnos también informan de la falta de reconocimiento y la falta de apoyo \citep{orzel-2010}.
-\par Otro problema actual está relacionado con los estudiantes de música procedentes de familias de bajos recursos. Según \citet{busby-2019}, los niños procedentes de familias pobres tienen 3 veces más probabilidades de no realizar actividades extracurriculares, como son los estudios musicales. En contraste, la mayoría de los padres de familias pobres reconocen el efecto positivo que tiene la música y estudios musicales sobre sus hijos \citep{ho-2020}.
+Actualmente, la forma más eficiente de aprendizaje de música y preferida por los tutores es la asistencia a los conservatorios y escuelas de música de forma extracurricular. En consecuencia, el niño es obligado a asistir tanto a su escuela de primaria/secundaria como, durante su tiempo libre, a la escuela de música. Asimismo, es obligado a la realización de las tareas academicas de ambas durante su tiempo libre, lo cual podría generar falta de motivación, resentimiento y el síndrome de agotamiento (\textit{burnout}). Por otro lado, los alumnos también informan de la falta de reconocimiento y la falta de apoyo \citep{orzel-2010}.
+\par Otro problema relevante está relacionado con los estudiantes de música procedentes de familias de bajos recursos económicos. Según \citet{busby-2019}, los niños procedentes de familias pobres tienen 3 veces más probabilidades de no participar en actividades extracurriculares, como los estudios musicales. En contraste, la mayoría de los padres de familias de bajos ingresos reconocen el efecto positivo que la música y la formación musical tienen sobre sus hijos \citep{ho-2020}.
 
 %\section{Apartados dentro de los capítulos}
-\section{El entrenamiento del oído}
 %En \LaTeX~existen diferentes niveles de títulos para realizar secciones, subsecciones, etc. En esta web puedes ver más información al respecto \url{https://en.wikibooks.org/wiki/LaTeX/Document_Structure}
 %
 %Para ello se utilizan los siguientes comandos;
@@ -112,118 +150,118 @@ Actualmente, la forma más eficiente del aprendizaje de música y preferida por 
 %	\paragraph{Esto es un paragraph}
 % 	Y este el contenido del paragraph. Que siempre se inicia en la misma línea que el título del mismo.
 
-\section{Citar bibliografía}
-Para citar la bibliografía tal como se define en el sistema APA (en esta web se indica como debe aparecer en el texto la cita: \url{http://guides.libraries.psu.edu/apaquickguide/intext}) se debe realizar con alguno de los comandos mostrados a continuación:
-
-\begin{lstlisting}[style=Latex-color]
-Esto es una cita estándar: \citet{Shaw1996}, que también puedes mostrar con paréntesis así: \citep{Shaw1996}. También se puede realizar una cita indicando a qué parte te refieres \citep[ver][Cap. 2]{Shaw1996} o \citep[Cap. 2]{Shaw1996} o \citep[ver][]{Shaw1996}. 
-
-También puedes mostrar todos los autores cuando hay más de 2 autores añadiendo un asterisco después del comando como: \citet*{Akyildiz2005}, sin el asterisco quedaría así: \citet{Akyildiz2005}.
-
-O puedes citar dos o más fuentes al mismo tiempo: \citep{Barkan1995,Leighton2012}
-
-\end{lstlisting}
-Y \LaTeX~genera lo siguiente:
-\\
-\par Esto es una cita estándar: \citet{Shaw1996}, que también puedes mostrar con paréntesis así: \citep{Shaw1996}. También se puede realizar una cita indicando a qué parte te refieres \citep[ver][Cap. 2]{Shaw1996} o \citep[Cap. 2]{Shaw1996} o \citep[ver][]{Shaw1996}. 
-\\
-\par También puedes mostrar todos los autores cuando hay más de 2 autores añadiendo un asterisco después del comando como: \citet*{Akyildiz2005}, sin el asterisco quedaría así: \citet{Akyildiz2005}.
-\\
-\par O puedes citar dos o más fuentes al mismo tiempo: \citep{Barkan1995,Leighton2012}
-
-
-\section{Notas a pie de página}
-
-Para introducir notas a pie de página se debe escribir lo siguiente:
-
-\begin{lstlisting}[style=Latex-color]
-	La plantilla necesita el motor XeLaTeX \footnote{Para más información sobre XeLaTeX visita \url{https://es.sharelatex.com/learn/XeLaTeX}} (el más recomendable actualmente), por lo que si el programa que utilizas compila la plantilla con el motor pdfLaTeX \footnote{También puedes buscar más información en internet} (el más habitual pero menos potente) debes cambiarlo por XeLaTeX en las opciones del programa. Si no sabes como hacerlo busca en el manual del programa o en google.
-\end{lstlisting}
-
-\LaTeX~genera lo siguiente (observa las notas a pie de página):
-\\
-\par La plantilla necesita el motor XeLaTeX\footnote{Para más información sobre XeLaTeX visita \url{https://es.sharelatex.com/learn/XeLaTeX}} (el más recomendable actualmente), por lo que si el programa que utilizas compila la plantilla con el motor pdfLaTeX\footnote{También puedes buscar más información en internet} (el más habitual pero menos potente) debes cambiarlo por XeLaTeX en las opciones del programa. Si no sabes como hacerlo busca en el manual del programa o en google.
-\section{Estilos de texto}
-
-A continuación se muestran ejemplos de distintos estilos de texto:
-
-\begin{itemize}
-	\item \textbackslash textit\{Cursiva\} $\rightarrow$ \textit{Cursiva}
-	\item \textbackslash emph\{Cursiva 2\} $\rightarrow$ \emph{Cursiva 2}
-	\item \textbackslash textbf\{Negrita\} $\rightarrow$ \textbf{Negrita}
-	\item \textbackslash texttt\{Monoespacio\} $\rightarrow$ \texttt{Monoespacio}
-	\item \textbackslash textsc\{Mayúsculas capitales\} $\rightarrow$ \textsc{Mayúsculas capitales}
-	\item \textbackslash uppercase\{Todo mayúsculas\} $\rightarrow$ \uppercase{Todo mayúsculas} 
-\end{itemize}
-
- \section{Acrónimos}
- Ahora vamos a ver cómo se ponen los acrónimos.
- 
- La norma dice que la primera vez que aparece un acrónimo debe ponerse su fórmula completa, es decir lo que significa, al lado del acrónimo. Después de ello, podemos usar sólo el acrónimo salvo cuando consideremos que debemos volver a usar la fórmula completa por alguna razón de legibilidad.
- 
- ¿Cómo llevar la cuenta de cuándo es la primera vez que ponemos el acrónimo? si hacemos cambios en el doc es fácil que perdamos esa información así que lo mejor es que sea el propio \LaTeX~el que lleve esa cuenta. Para ello tenemos que hacer dos cosas:
- \begin{description}
- \item[Primero:] creamos la entrada del acrónimo en el fichero acronimos.tex. Revisa los comentarios de su cabecera para saber cómo crear esa entrada. Básicamente lo que hacemos allí es poner la ``fórmula corta'' y la ``fórmula larga'' del acrónimo es decir, el propio acrónimo y su significado
- \item[Segundo:] escribimos en el texto el acrónimo SIEMPRE diciendo que es un acrónimo y el tipo de fórmula que queremos usar. Por ejemplo, si siempre que queremos hacer referencia al IEEE escribimos \begin{lstlisting}[style=Latex-color]
- \gls{ieee}
- \end{lstlisting}  se consigue que la primera vez que aparezca el acrónimo ponga las fórmulas larga y corta y en las siguientes ocasiones sólo aparecerá la corta.
- \end{description}
- 
- Aquí va un ejemplo:
- 
- Si escribimos:
- 
-\begin{lstlisting}[style=Latex-color]
- El \gls{ieee} es una institución muy importante en el mundo de la
- ingeniería.  El \gls{ieee} lleva marcando normas y protocolos desde
- hace mucho tiempo.  Pero el \gls{ieee} no está solo en esta tarea. 
- Además del \gls{ieee} hay muchas otras instituciones para ello.  \end{lstlisting}
- 
- Obtendremos: 
- 
-El \gls{ieee} es una institución muy importante en el mundo de la
- ingeniería.  El \gls{ieee} lleva marcando normas y protocolos desde
- hace mucho tiempo.  Pero el \gls{ieee} no está solo en esta tarea. 
- Además del \gls{ieee} hay muchas otras instituciones para ello.
- 
- \section{Tareas por hacer}
- 
- En esta plantilla se ha incluido un paquete para incluir notas/comentarios en el texto para recordar partes que hay que revisar o terminar de desarrollar. El uso es sencillo, el manual para conocer todos los comandos se encuentra en \url{http://osl.ugr.es/CTAN/macros/latex/contrib/todonotes/todonotes.pdf}, a continuación se muestran algunos ejemplos:
- \\
-\par Para incluir un comentario sobre el texto:
-
-\begin{lstlisting}[style=Latex-color]
-	Recomiendo utilizar programas LaTeX que permitan trabajar con sistema de archivos para poder editar el conjunto de capítulos en la misma ventana. Este tipo de función lo tienen programas como TexStudio, es multiplataforma. \todo{Incluir más ejemplos de programas}
-\end{lstlisting}
-
-\LaTeX~genera lo siguiente:
-\\
-\par Recomiendo utilizar programas LaTeX que permitan trabajar con sistema de archivos para poder editar el conjunto de capítulos en la misma ventana. Este tipo de función lo tienen programas como TexStudio, es multiplataforma.
-\todo{Incluir más ejemplos de programas}
-\vspace{1em}
-\noindent\hrule
-\vspace{1em}
-\par Para incluir un comentario sobre el texto pero dentro del texto:
-
-\begin{lstlisting}[style=Latex-color]
-	Recomiendo utilizar programas LaTeX que permitan trabajar con sistema de archivos para poder editar el conjunto de capítulos en la misma ventana. Este tipo de función lo tienen programas como TexStudio, es multiplataforma. \todo[inline]{Incluir más ejemplos de programas}
-\end{lstlisting}
-
-\LaTeX~genera lo siguiente:
-\\
-\par Recomiendo utilizar programas LaTeX que permitan trabajar con sistema de archivos para poder editar el conjunto de capítulos en la misma ventana. Este tipo de función lo tienen programas como TexStudio, es multiplataforma. \todo[inline]{Incluir más ejemplos de programas}
-\vspace{1em}
-\noindent\hrule
-\vspace{1em}
-\par También se puede dejar indicado donde falta una imagen o figura, para incluirla más adelante del siguiente modo:
-
-\begin{lstlisting}[style=Latex-color]
-\missingfigure{Añadir gráfica de rendimiento}	
-\end{lstlisting}
-
-\LaTeX~genera lo siguiente:
-\\
-\missingfigure{Añadir gráfica de rendimiento}	
+%\section{Citar bibliografía}
+%Para citar la bibliografía tal como se define en el sistema APA (en esta web se indica como debe aparecer en el texto la cita: \url{http://guides.libraries.psu.edu/apaquickguide/intext}) se debe realizar con alguno de los comandos mostrados a continuación:
+%
+%\begin{lstlisting}[style=Latex-color]
+%Esto es una cita estándar: \citet{Shaw1996}, que también puedes mostrar con paréntesis así: \citep{Shaw1996}. También se puede realizar una cita indicando a qué parte te refieres \citep[ver][Cap. 2]{Shaw1996} o \citep[Cap. 2]{Shaw1996} o \citep[ver][]{Shaw1996}. 
+%
+%También puedes mostrar todos los autores cuando hay más de 2 autores añadiendo un asterisco después del comando como: \citet*{Akyildiz2005}, sin el asterisco quedaría así: \citet{Akyildiz2005}.
+%
+%O puedes citar dos o más fuentes al mismo tiempo: \citep{Barkan1995,Leighton2012}
+%
+%\end{lstlisting}
+%Y \LaTeX~genera lo siguiente:
+%\\
+%\par Esto es una cita estándar: \citet{Shaw1996}, que también puedes mostrar con paréntesis así: \citep{Shaw1996}. También se puede realizar una cita indicando a qué parte te refieres \citep[ver][Cap. 2]{Shaw1996} o \citep[Cap. 2]{Shaw1996} o \citep[ver][]{Shaw1996}. 
+%\\
+%\par También puedes mostrar todos los autores cuando hay más de 2 autores añadiendo un asterisco después del comando como: \citet*{Akyildiz2005}, sin el asterisco quedaría así: \citet{Akyildiz2005}.
+%\\
+%\par O puedes citar dos o más fuentes al mismo tiempo: \citep{Barkan1995,Leighton2012}
+%
+%
+%\section{Notas a pie de página}
+%
+%Para introducir notas a pie de página se debe escribir lo siguiente:
+%
+%\begin{lstlisting}[style=Latex-color]
+%	La plantilla necesita el motor XeLaTeX \footnote{Para más información sobre XeLaTeX visita \url{https://es.sharelatex.com/learn/XeLaTeX}} (el más recomendable actualmente), por lo que si el programa que utilizas compila la plantilla con el motor pdfLaTeX \footnote{También puedes buscar más información en internet} (el más habitual pero menos potente) debes cambiarlo por XeLaTeX en las opciones del programa. Si no sabes como hacerlo busca en el manual del programa o en google.
+%\end{lstlisting}
+%
+%\LaTeX~genera lo siguiente (observa las notas a pie de página):
+%\\
+%\par La plantilla necesita el motor XeLaTeX\footnote{Para más información sobre XeLaTeX visita \url{https://es.sharelatex.com/learn/XeLaTeX}} (el más recomendable actualmente), por lo que si el programa que utilizas compila la plantilla con el motor pdfLaTeX\footnote{También puedes buscar más información en internet} (el más habitual pero menos potente) debes cambiarlo por XeLaTeX en las opciones del programa. Si no sabes como hacerlo busca en el manual del programa o en google.
+%\section{Estilos de texto}
+%
+%A continuación se muestran ejemplos de distintos estilos de texto:
+%
+%\begin{itemize}
+%	\item \textbackslash textit\{Cursiva\} $\rightarrow$ \textit{Cursiva}
+%	\item \textbackslash emph\{Cursiva 2\} $\rightarrow$ \emph{Cursiva 2}
+%	\item \textbackslash textbf\{Negrita\} $\rightarrow$ \textbf{Negrita}
+%	\item \textbackslash texttt\{Monoespacio\} $\rightarrow$ \texttt{Monoespacio}
+%	\item \textbackslash textsc\{Mayúsculas capitales\} $\rightarrow$ \textsc{Mayúsculas capitales}
+%	\item \textbackslash uppercase\{Todo mayúsculas\} $\rightarrow$ \uppercase{Todo mayúsculas} 
+%\end{itemize}
+%
+% \section{Acrónimos}
+% Ahora vamos a ver cómo se ponen los acrónimos.
+% 
+% La norma dice que la primera vez que aparece un acrónimo debe ponerse su fórmula completa, es decir lo que significa, al lado del acrónimo. Después de ello, podemos usar sólo el acrónimo salvo cuando consideremos que debemos volver a usar la fórmula completa por alguna razón de legibilidad.
+% 
+% ¿Cómo llevar la cuenta de cuándo es la primera vez que ponemos el acrónimo? si hacemos cambios en el doc es fácil que perdamos esa información así que lo mejor es que sea el propio \LaTeX~el que lleve esa cuenta. Para ello tenemos que hacer dos cosas:
+% \begin{description}
+% \item[Primero:] creamos la entrada del acrónimo en el fichero acronimos.tex. Revisa los comentarios de su cabecera para saber cómo crear esa entrada. Básicamente lo que hacemos allí es poner la ``fórmula corta'' y la ``fórmula larga'' del acrónimo es decir, el propio acrónimo y su significado
+% \item[Segundo:] escribimos en el texto el acrónimo SIEMPRE diciendo que es un acrónimo y el tipo de fórmula que queremos usar. Por ejemplo, si siempre que queremos hacer referencia al IEEE escribimos \begin{lstlisting}[style=Latex-color]
+% \gls{ieee}
+% \end{lstlisting}  se consigue que la primera vez que aparezca el acrónimo ponga las fórmulas larga y corta y en las siguientes ocasiones sólo aparecerá la corta.
+% \end{description}
+% 
+% Aquí va un ejemplo:
+% 
+% Si escribimos:
+% 
+%\begin{lstlisting}[style=Latex-color]
+% El \gls{ieee} es una institución muy importante en el mundo de la
+% ingeniería.  El \gls{ieee} lleva marcando normas y protocolos desde
+% hace mucho tiempo.  Pero el \gls{ieee} no está solo en esta tarea. 
+% Además del \gls{ieee} hay muchas otras instituciones para ello.  \end{lstlisting}
+% 
+% Obtendremos: 
+% 
+%El \gls{ieee} es una institución muy importante en el mundo de la
+% ingeniería.  El \gls{ieee} lleva marcando normas y protocolos desde
+% hace mucho tiempo.  Pero el \gls{ieee} no está solo en esta tarea. 
+% Además del \gls{ieee} hay muchas otras instituciones para ello.
+% 
+% \section{Tareas por hacer}
+% 
+% En esta plantilla se ha incluido un paquete para incluir notas/comentarios en el texto para recordar partes que hay que revisar o terminar de desarrollar. El uso es sencillo, el manual para conocer todos los comandos se encuentra en \url{http://osl.ugr.es/CTAN/macros/latex/contrib/todonotes/todonotes.pdf}, a continuación se muestran algunos ejemplos:
+% \\
+%\par Para incluir un comentario sobre el texto:
+%
+%\begin{lstlisting}[style=Latex-color]
+%	Recomiendo utilizar programas LaTeX que permitan trabajar con sistema de archivos para poder editar el conjunto de capítulos en la misma ventana. Este tipo de función lo tienen programas como TexStudio, es multiplataforma. \todo{Incluir más ejemplos de programas}
+%\end{lstlisting}
+%
+%\LaTeX~genera lo siguiente:
+%\\
+%\par Recomiendo utilizar programas LaTeX que permitan trabajar con sistema de archivos para poder editar el conjunto de capítulos en la misma ventana. Este tipo de función lo tienen programas como TexStudio, es multiplataforma.
+%\todo{Incluir más ejemplos de programas}
+%\vspace{1em}
+%\noindent\hrule
+%\vspace{1em}
+%\par Para incluir un comentario sobre el texto pero dentro del texto:
+%
+%\begin{lstlisting}[style=Latex-color]
+%	Recomiendo utilizar programas LaTeX que permitan trabajar con sistema de archivos para poder editar el conjunto de capítulos en la misma ventana. Este tipo de función lo tienen programas como TexStudio, es multiplataforma. \todo[inline]{Incluir más ejemplos de programas}
+%\end{lstlisting}
+%
+%\LaTeX~genera lo siguiente:
+%\\
+%\par Recomiendo utilizar programas LaTeX que permitan trabajar con sistema de archivos para poder editar el conjunto de capítulos en la misma ventana. Este tipo de función lo tienen programas como TexStudio, es multiplataforma. \todo[inline]{Incluir más ejemplos de programas}
+%\vspace{1em}
+%\noindent\hrule
+%\vspace{1em}
+%\par También se puede dejar indicado donde falta una imagen o figura, para incluirla más adelante del siguiente modo:
+%
+%\begin{lstlisting}[style=Latex-color]
+%\missingfigure{Añadir gráfica de rendimiento}	
+%\end{lstlisting}
+%
+%\LaTeX~genera lo siguiente:
+%\\
+%\missingfigure{Añadir gráfica de rendimiento}	
 
 
 
