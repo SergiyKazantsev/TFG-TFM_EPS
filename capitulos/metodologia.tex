@@ -5,81 +5,176 @@
 % Contacto: info@jmrplens.com / Telegram:@jmrplens
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Metodología (Con ejemplos de figuras)}
+\chapter{Metodología}
 \label{metodologia}
-
-\section{Inserción de figuras}
-
-Las figuras son un caso un poco especial ya que \LaTeX~busca el mejor lugar para ponerlas, no siendo necesariamente el lugar donde está la referencia. Por ello es importante añadirle un ``caption'' y un ``label'' para poder hacer referencia a ellas en el párrafo correspondiente. Nosotros ponemos la referencia a la figura \ref{multiimagen} que está en la página \pageref{multiimagen}, justo aquí debajo, pero \LaTeX ~puede que la ubique en otro lugar. (observa el código \LaTeX~ de este párrafo para observar como se realizan las referencias. Estos detalles también se aplican a tablas y otros objetos).
-
-\begin{table}[h]
-\centering
-\begin{tabular}{ccc}
-\includegraphics[scale=0.2]{archivos/130} & \includegraphics[scale=0.2]{archivos/160} & \includegraphics[scale=0.2]{archivos/190} \\
-$Dist=1m \; ; \; \phi=30º$  & $Dist=1m \; ; \; \phi=60º$  & $Dist=1m \; ; \; \phi=90º$  \\
-\includegraphics[scale=0.2]{archivos/230} & \includegraphics[scale=0.2]{archivos/260} & \includegraphics[scale=0.2]{archivos/290} \\
-$Dist=2m \; ; \; \phi=30º$  & $Dist=2m \; ; \; \phi=60º$  & $Dist=2m \; ; \; \phi=90º$  \\
-\includegraphics[scale=0.2]{archivos/330} & \includegraphics[scale=0.2]{archivos/360} & \includegraphics[scale=0.2]{archivos/390} \\
-$Dist=3m \; ; \; \phi=30º$  & $Dist=3m \; ; \; \phi=60º$  & $Dist=3m \; ; \; \phi=90º$ \\
-\end{tabular}
-\caption{Esta es una tabla con múltiples imágenes. Útil cuando se deben mostrar varias juntas.}
-\label{multiimagen} % 
+Este capítulo tendrá como objetivo hacer el estudio de las tecnologías disponibles con el fin de seleccionar la opción que mejor se adapte al proyecto. Posteriormente, se analizarán los riesgos relacionados tanto con el \textit{stack} tecnológico utilizado como con los problemas que se encuentran fuera del alcance del desarrollador. Finalmente, se realizará una planificación detallada del proceso de desarrollo aplicando las metodologías ágiles correspondientes.
+\section{Selección de las tecnologías:}
+Dentro de este apartado se van a exponer las tecnologías candidatas para realizar el desarrollo de una aplicación multiplataforma para Web y Android. 
+\subsection{Frontend}
+El frontend son las tecnologías que se desarrollan para ser mostradas en el lado del cliente (del usuario) \citep{frontend}. En el caso de una aplicación para Web y Android, serían la página Web (HTML, CSS y JavaScript) y la aplicación nativa de Android, respectivamente.
+\subsubsection{Flutter}
+Flutter es un framework creado por Google para su lenguaje propio, Dart. Inicialmente, ha sido diseñado para desarrollar aplicaciones multiplataforma compatibles con Android y iOS. Su sintaxis es distinta a JavaScript y es más parecido a C y C\# por la forma de estructurar el código. El lenguaje usado por Flutter, Dart, es un lenguaje muy similar a la previamente mencionada familia C. Es un lenguaje fuertemente tipado, aunque cuenta con la inferencia de tipos y Sound Null Safety.
+\par La idea principal de Flutter es componer aplicaciones con Widgets (parecidos a las clases de Java), "Todo es un Widget" es el lema de este framework. Cada widget se modifica usando decoradores: por ejemplo, de color o texto interno. \citep{flutter}
+\par La razón por la cual este framework no se ha seleccionado para el desarrollo de este proyecto es su poca compatibilidad con la Web. Es posible generar páginas e incluso sitios web interactivos, pero la mayoría de las librerías de música solo son compatibles con Android e iOS, y con los navegadores no. Por ello, para no arriesgar, se ha procedido al estudio de los frameworks JavaScript, que son por defecto compatibles con la mayoría de los navegadores.
+\subsubsection{React Native con Expo}
+React Native con Expo es un framework que permite la creación de aplicaciones nativas para Android e iOS con tan solo JavaScript, basándose en React. 
+\par React es una librería de JavaScript diseñada por Meta(Facebook) para construir interfaces de Frontend usando Componentes reutilizables: botones, formularios, etc. Dado que es una librería, no proporciona forma estandarizada de estructurar el código. \citep{react}
+\par Expo es un framework basado en React Native que proporciona la compatibilidad con dispositivos móviles y tiene su propio SDK. Aunque es posible desarrollar aplicaciones multiplataforma con React Native, Expo proporciona mayor compatibilidad a la hora de importar diferentes librerías y también a la hora de compilar el código.
+\par A pesar de todo, se ha concluido que React Native con Expo no es adecuado para realizar este proyecto, dado que aunque proporciona compatibilidad con la Web y Android, requiere el manejo de distintas arquitecturas de código, y, como se ha comentado previamente, React no proporciona ningún patrón de estructurar el código, por lo cual el tiempo de desarrollo aumentaría.
+\subsubsection{Ionic con Angular}
+Ionic con Angular ha sido el finalista para la tecnología de frontend.
+\par Angular es el framework de JavaScript introducido por Google y el cual es famoso por su forma estricta de estructurar el código, sobre todo para la comunicación con el backend usando servicios, y por otro lado, para la reactividad. Actualmente, Angular es uno de los frameworks más usados en la industria. Por otro lado, Ionic está diseñado para ser usado principalmente con Angular, por lo cual se integra mejor con él y causa menos errores.
+\par Ionic es una librería visual que se integra con Capacitor para permitir desarrollar aplicaciones multiplataforma. Ionic permite la creación de PWAs y aplicaciones nativas que son completamente compatibles a la vez con los navegadores y con los dispositivos móviles. \citep{ionic}
+\par Otra razón importante del uso de Ionic es porque es un framework que se ha usado varias veces en la carrera, por lo cual disminuiría el tiempo para finalizar el proyecto.
+\subsubsection{Tabla comparativa de frameworks frontend}
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{
+	\begin{tabular}{|C{3.5cm}|C{2.5cm}|C{2cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+		\hline
+		\multicolumn{6}{|c|}{\textbf{Comparativa: Frameworks de frontend}} \\ \hline
+		\textbf{Framework} & \textbf{Curva de aprendizaje} & \textbf{Flexibilidad} & \textbf{Compatibilidad Web/Móvil} & \textbf{Rapidez de desarrollo} & \textbf{Soporte} \\ \hline
+		
+		\textbf{Flutter} &
+		\cellcolor{red!40} Muy alta & \cellcolor{yellow!40} Media & \cellcolor{orange!40} Baja & 
+		\cellcolor{green!40} Alta & 
+		\cellcolor{gray!10} Google \\ \hline
+		
+		\textbf{React Native con Expo} & 
+		\cellcolor{orange!40} Alta & \cellcolor{green!40} Alta & \cellcolor{green!40} Alta & 
+		\cellcolor{orange!40} Baja & 
+		\cellcolor{gray!10} Meta / Open Source \\ \hline
+		
+		\textbf{Ionic con Angular} & 
+		\cellcolor{green!40} Baja & \cellcolor{yellow!40} Media & \cellcolor{green!40} Alta & 
+		\cellcolor{yellow!40} Media &
+		\cellcolor{gray!10} Open Source \\ \hline
+	\end{tabular}
+	}
+	\caption{Comparativa de frameworks multiplataforma}
+	\label{tabla-frontend-final}
+\end{table}
+\newpage
+\subsection{Backend}
+Se llama Backend a todo servicio que se encuentra en el lado del servidor. Algunos de sus usos son: comunicación con la base de datos, verificación tokens y usuarios, realización de transacciones, etc. Actualmente existen menos opciones de tecnologías para backend que para frontend. \citep{frontend}
+\subsubsection{Servidor propio}
+La primera opción que viene a la mente para realizar un proyecto web es construir un backend propio. La ventaja principal de un backend creado desde cero con un framework es que será hecho a medida, haciendo uso de las funciones internas del servidor en el caso de que sean complejas, y será independiende del cualquier proveedor como Google o AWS. Al mismo tiempo, es también una desventaja, ya que se tardará más tiempo en construir un servidor propio que usar un backend remoto, y en el caso de que el backend no tiene que ser suficientemente sofisticado, el esfuerzo para desarrollar un API sencillo no es justificado.
+\subsubsection{Firebase}
+Firebase es un \gls{baas} hecho por Google que permite desplegar servidores y servicios en la Web sin escribir código de servidor (Java, C\#...). Las ventajas de Firebase es el amplio gama de servicios que ofrece para un backend, algunos de ellos son \citep{firebase}:
+\begin{itemize}
+	\item \textbf{Autentificación:} Permite la autentificación con Email, Teléfono y aplicaciónes de terceros a través de OAuth.
+	\item \textbf{Base de datos:} Ofrece una base de datos NoSQL gestionada con archivos JSON.
+	\item \textbf{Funciones Firebase:} Las funciones Firebase son \textit{hooks} que permiten introducir la lógica de negocio dentro del servidor en la nube de Firebase. Se escribe con código Node.js.
+\end{itemize}
+\par A pesar de todo, Firebase es un \gls{baas} donde la mayoría de instrumentos que son de pago, y la mayoría de esos instrumentos no es conveniente para servicios entusiastas, ya que principalmente están diseñadas para aplicaciónes de negocio grandes y empresariales. Por otro lado, Firebase es un servicio de código cerrado que no permite migraciones automáticas, por lo cual siempre habrá posibilidad de perder el backend en el caso de no pagar o en cualquier otro.
+\subsubsection{Supabase}
+Supabase es otro \gls{baas} bastante utilizado, en este caso, mayoritariamente por los entusiastas y desarrolladores independientes. Sus servicios principales son \citep{supabase}:
+\begin{itemize}
+	\item \textbf{Autentificación:} Permite la autentificación con Email, Teléfono y también OAuth.
+	\item \textbf{Base de datos:} Se usa una base de datos SQL (PostreSQL)
+\end{itemize}
+\par La funcionalidad que ofrece Supabase es básica y limitada a todo lo que puede necesitar un desarrollador independiente, a diferencia de Firebase no incluye uso de la IA para analizar datos, pruebas A/B, funciones, Machine Learning, etc. Por otro lado, Supabase es un proyecto de código abierto, por lo cual si un usuario no está de acuerdo con su política, puede exportar las migraciones y backups de la base de datos y construir su propio backend a partir de ellos (incluso con supabase local). La facilidad de uso, ausencia de complejidades y la filosofía de \textit{open-source} hace de supabase un buen candidato para el proyecto a desarrollar.
+\subsubsection{Tabla comparativa de servicios backend}
+\begin{table}[H]
+	\centering
+	\label{tabla-backend}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|C{3.5cm}|C{3cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+			\hline
+			\multicolumn{6}{|c|}{\textbf{Comparativa: Servidores de backend}} \\ \hline
+			\textbf{Solución} & \textbf{Tipo de Base de Datos} & \textbf{Gestión de Migraciones} & \textbf{Escalabilidad} & \textbf{Control / Libertad} & \textbf{Mantenimiento} \\ \hline
+			
+			\textbf{Servidor Propio} & 
+			\cellcolor{gray!10} SQL / NoSQL & 
+			\cellcolor{green!40} Nativa & \cellcolor{red!20} Baja  & \cellcolor{green!40} Muy alta & \cellcolor{red!40} Muy Alto \\ \hline
+			
+			\textbf{Firebase (Google)} & 
+			 \cellcolor{gray!10} NoSQL & 
+			 \cellcolor{red!40} No nativa & \cellcolor{green!20} Alta & \cellcolor{red!20} Baja (Versión gratuita) & 
+			 \cellcolor{green!20} Bajo \\ \hline
+			
+			\textbf{Supabase (Open Source)} & 
+			 \cellcolor{gray!10} SQL & 
+			 \cellcolor{green!40} Nativa & \cellcolor{green!20} Alta & \cellcolor{green!20} Alta & \cellcolor{green!20} Bajo \\ \hline
+		\end{tabular}
+	}
+	\caption{Comparativa de servicios backend}
 \end{table}
 
-Existe también la posibilidad de realizarlo sin tablas, con subfiguras:
-\begin{lstlisting}[style=Latex-color]
-\begin{figure}[h]
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
-    	\centering
-        \includegraphics[width=4cm]{archivos/subs-sin} % Tamaño de la imagen
-        \caption{Sin procesado.}
-        \label{fig:gull}
-    \end{subfigure}
-    ~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
-    \begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
-    	\centering
-        \includegraphics[width=4cm]{archivos/subs-con} % Tamaño de la imagen
-        \caption{Con procesado.}
-        \label{fig:tiger}
-    \end{subfigure}
-    \caption{Ejemplo de subfiguras}\label{sistemass}
-\end{figure}
-\end{lstlisting}
-\begin{figure}[h]
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-    	\centering
-        \includegraphics[width=4cm]{archivos/subs-sin}
-        \caption{Sin procesado.}
-        \label{fig:gull1}
-    \end{subfigure}
-    ~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
-    \begin{subfigure}[b]{0.4\textwidth}
-    	\centering
-        \includegraphics[width=4cm]{archivos/subs-con}
-        \caption{Con procesado.}
-        \label{fig:tiger1}
-    \end{subfigure}
-    \caption{Ejemplo de subfiguras}\label{sistemass1}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \begin{subfigure}[b]{\textwidth}
-    	\centering
-        \includegraphics[width=4cm]{archivos/subs-sin}
-        \caption{Sin procesado.}
-        \label{fig:gull2}
-    \end{subfigure}
-    
-    \begin{subfigure}[b]{\textwidth}
-    	\centering
-        \includegraphics[width=4cm]{archivos/subs-con}
-        \caption{Con procesado.}
-        \label{fig:tiger2}
-    \end{subfigure}
-    \caption{Ejemplo de subfiguras vertical}\label{sistemass2}
-\end{figure}
-
-Si eliminas la línea '\textbackslash caption' de las subfiguras, tendrás las imágenes sin la información individual, aunque sí con la principal. Y obviamente, si eliminas el de la figura no se mostrará ninguna información.
+\section{Planificación}
+da
+%\section{Inserción de figuras}
+%
+%Las figuras son un caso un poco especial ya que \LaTeX~busca el mejor lugar para ponerlas, no siendo necesariamente el lugar donde está la referencia. Por ello es importante añadirle un ``caption'' y un ``label'' para poder hacer referencia a ellas en el párrafo correspondiente. Nosotros ponemos la referencia a la figura \ref{multiimagen} que está en la página \pageref{multiimagen}, justo aquí debajo, pero \LaTeX ~puede que la ubique en otro lugar. (observa el código \LaTeX~ de este párrafo para observar como se realizan las referencias. Estos detalles también se aplican a tablas y otros objetos).
+%
+%\begin{table}[h]
+%\centering
+%\begin{tabular}{ccc}
+%\includegraphics[scale=0.2]{archivos/130} & \includegraphics[scale=0.2]{archivos/160} & \includegraphics[scale=0.2]{archivos/190} \\
+%$Dist=1m \; ; \; \phi=30º$  & $Dist=1m \; ; \; \phi=60º$  & $Dist=1m \; ; \; \phi=90º$  \\
+%\includegraphics[scale=0.2]{archivos/230} & \includegraphics[scale=0.2]{archivos/260} & \includegraphics[scale=0.2]{archivos/290} \\
+%$Dist=2m \; ; \; \phi=30º$  & $Dist=2m \; ; \; \phi=60º$  & $Dist=2m \; ; \; \phi=90º$  \\
+%\includegraphics[scale=0.2]{archivos/330} & \includegraphics[scale=0.2]{archivos/360} & \includegraphics[scale=0.2]{archivos/390} \\
+%$Dist=3m \; ; \; \phi=30º$  & $Dist=3m \; ; \; \phi=60º$  & $Dist=3m \; ; \; \phi=90º$ \\
+%\end{tabular}
+%\caption{Esta es una tabla con múltiples imágenes. Útil cuando se deben mostrar varias juntas.}
+%\label{multiimagen} % 
+%\end{table}
+%
+%Existe también la posibilidad de realizarlo sin tablas, con subfiguras:
+%\begin{lstlisting}[style=Latex-color]
+%\begin{figure}[h]
+%    \centering
+%    \begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
+%    	\centering
+%        \includegraphics[width=4cm]{archivos/subs-sin} % Tamaño de la imagen
+%        \caption{Sin procesado.}
+%        \label{fig:gull}
+%    \end{subfigure}
+%    ~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
+%    \begin{subfigure}[b]{0.4\textwidth} % Espacio horizontal ocupado por la subfigura
+%    	\centering
+%        \includegraphics[width=4cm]{archivos/subs-con} % Tamaño de la imagen
+%        \caption{Con procesado.}
+%        \label{fig:tiger}
+%    \end{subfigure}
+%    \caption{Ejemplo de subfiguras}\label{sistemass}
+%\end{figure}
+%\end{lstlisting}
+%\begin{figure}[h]
+%    \centering
+%    \begin{subfigure}[b]{0.4\textwidth}
+%    	\centering
+%        \includegraphics[width=4cm]{archivos/subs-sin}
+%        \caption{Sin procesado.}
+%        \label{fig:gull1}
+%    \end{subfigure}
+%    ~ % Añadir el espacio deseado, si se deja la linea en blanco la siguiente subfigura ira en una nueva linea
+%    \begin{subfigure}[b]{0.4\textwidth}
+%    	\centering
+%        \includegraphics[width=4cm]{archivos/subs-con}
+%        \caption{Con procesado.}
+%        \label{fig:tiger1}
+%    \end{subfigure}
+%    \caption{Ejemplo de subfiguras}\label{sistemass1}
+%\end{figure}
+%
+%\begin{figure}[h]
+%    \centering
+%    \begin{subfigure}[b]{\textwidth}
+%    	\centering
+%        \includegraphics[width=4cm]{archivos/subs-sin}
+%        \caption{Sin procesado.}
+%        \label{fig:gull2}
+%    \end{subfigure}
+%    
+%    \begin{subfigure}[b]{\textwidth}
+%    	\centering
+%        \includegraphics[width=4cm]{archivos/subs-con}
+%        \caption{Con procesado.}
+%        \label{fig:tiger2}
+%    \end{subfigure}
+%    \caption{Ejemplo de subfiguras vertical}\label{sistemass2}
+%\end{figure}
+%
+%Si eliminas la línea '\textbackslash caption' de las subfiguras, tendrás las imágenes sin la información individual, aunque sí con la principal. Y obviamente, si eliminas el de la figura no se mostrará ninguna información.
