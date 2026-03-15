@@ -90,19 +90,35 @@ Supabase es otro \gls{baas} bastante utilizado, en este caso, mayoritariamente p
 			
 			\textbf{Firebase (Google)} & 
 			 \cellcolor{gray!10} NoSQL & 
-			 \cellcolor{red!40} No nativa & \cellcolor{green!20} Alta & \cellcolor{red!20} Baja (Versión gratuita) & 
+			 \cellcolor{red!40} No nativa & \cellcolor{green!40} Muy alta & \cellcolor{red!20} Baja (Versión gratuita) & 
 			 \cellcolor{green!20} Bajo \\ \hline
 			
 			\textbf{Supabase (Open Source)} & 
 			 \cellcolor{gray!10} SQL & 
-			 \cellcolor{green!40} Nativa & \cellcolor{green!20} Alta & \cellcolor{green!20} Alta & \cellcolor{green!20} Bajo \\ \hline
+			 \cellcolor{green!40} Nativa & \cellcolor{green!20} Alta & \cellcolor{yellow!40} Media  & \cellcolor{green!20} Bajo \\ \hline
 		\end{tabular}
 	}
 	\caption{Comparativa de servicios backend}
 \end{table}
 
 \section{Planificación}
-da
+Para el desarrollo del proyecto, se ha decidido aplicar las metodologías ágiles, en concreto, Scrum. En este caso, dado que el equipo de trabajo está compuesto por un solo integrante, la metodología se adaptará respectivamente, limitando el número de puntos de historia semanales y el backlog. Se realizarán reuniones con el tutor y con los profesionales de música, que jugarán el papel de \textit{Product Owner} y \textit{Stakeholders}. 
+\par Scrum es una metodología ágil cuya idea es dividir las funcionalidades a implementar (historias de usuario) en sprints (períodos cortos de desarrollo), de tal manera que cada integrante del equipo puede planificar su trabajo y su objetivo es llegar a completar los puntos de historia planificados (horas de trabajo y complejidad). \citep{scrum}
+\par El seguimiento y planificación del trabajo se va a realizar usando la herramienta Trello, que es un software de planificación y organización de proyectos informáticos que permite la creación de tableros, sprints, documentación, etc. Se van a crear dos tableros kanban, uno en Trello que será utilizado para la planificación de todo el proyecto, y el otro en el repositorio de GitHub para la gestión del sprint actual, desglosando cada historia de Trello en issues dentro de GitHub.
+\par Un tablero kanban es una herramienta visual para la gestión de proyectos. Dentro del márco de trabajo scrum, permite desglosar cada historia de usuario y asignalre un estado, colocándole en la columna respectiva \citep{kanban}. Dentro de este trabajo, cada tablero kanban tendrá las siguientes columnas de estado:
+\subsection{Tablero Trello}
+\begin{itemize}
+	\item \textbf{Backlog:} Contiene las historias de usuario planificadas para el desarrollo del proyecto.
+	\item \textbf{ToDo:} Historias seleccionadas para el sprint actual.
+	\item \textbf{In Progress:} Historias que se han empezado a implementar.
+	\item \textbf{Done:} Historias que se han mezclado a la rama principal.
+\end{itemize}
+\subsection{Tablero GitHub:}
+\begin{itemize}
+	\item \textbf{ToDo:} Nuevos issues añadidos.
+	\item \textbf{In Progress:} Issues que se han empezado a implementar (se ha creado una rama de desarrollo).
+	\item \textbf{Done:} Dado que el proyecto es de un solo integrante, omitimos el estado "In pull request" y una vez que se haya implementado todo, se mezclará a la rama principal.
+\end{itemize}
 %\section{Inserción de figuras}
 %
 %Las figuras son un caso un poco especial ya que \LaTeX~busca el mejor lugar para ponerlas, no siendo necesariamente el lugar donde está la referencia. Por ello es importante añadirle un ``caption'' y un ``label'' para poder hacer referencia a ellas en el párrafo correspondiente. Nosotros ponemos la referencia a la figura \ref{multiimagen} que está en la página \pageref{multiimagen}, justo aquí debajo, pero \LaTeX ~puede que la ubique en otro lugar. (observa el código \LaTeX~ de este párrafo para observar como se realizan las referencias. Estos detalles también se aplican a tablas y otros objetos).
