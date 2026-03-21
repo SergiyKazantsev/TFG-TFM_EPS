@@ -12,16 +12,17 @@ En este capítulo se documenta todo el proceso de desarrollo del proyecto, donde
 El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello y el repositorio de GitHub. Para el tablero Trello, se han añadido los \textit{Power-Ups} correspondientes a los sprints de Scrum y los puntos de historia de usuario. Los \textit{Power-Ups} son extensiones que permiten añadir nuevas funcionalidades al tablero, como en este caso hacer el seguimiento del sprint y visualizar los puntos de historia de cada una de las tarjetas.
 \par Asimismo, se ha procedido a crear las historias de usuario para el Sprint 1, que correspondían a los primeros pasos a implementar dentro de la aplicación. Las historias seleccionadas para el sprint han sido:
 \begin{enumerate}
-	\item \textbf{001 Walking skeleton:} Como desarrollador, quiero implementar un flujo mínimo que permita comprobar el correcto funcionamiento del programa tanto en el navegador como en Android. \textbf{5 puntos de historia} \\
+	\item \textbf{001 Walking skeleton:} Como desarrollador, quiero implementar un flujo mínimo que permita comprobar el correcto funcionamiento del programa.  \textbf{5 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Se ha creado una página sencilla en Ionic y Angular.
+	Se ha creado una página sencilla en Ionic y Angular. Se comprueba el funcionamiento del login (no registro).
 	
-	\item \textbf{002 Integración con Supabase:} Como usuario, quiero que mis datos y acciones se guarden para la siguiente sesión. Para ello tengo que poder crear mi propia cuenta y poder hacer login. \textbf{3 puntos de historia}
+	\item \textbf{002 Integración con Supabase:} Como usuario, quiero tener una página de login atractiva y que mis datos y acciones se guarden para la siguiente sesión. Para ello tengo que poder crear mi propia cuenta y poder hacer login. \textbf{3 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}}
 	\begin{itemize}
 		\item El usuario puede registrarse.
 		\item El usuario puede iniciar sesión.
+		\item El usuario puede editar su perfil.
 		\item Sus sesión se guarda en el dispositivo.
 	\end{itemize}
 	
@@ -30,7 +31,7 @@ El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello 
 	{\small \textit{Criterios de aceptación:}} \\
 	Se han generado las notas de todas las escalas y se han guardado en assets de la aplicación.
 	
-	\item \textbf{004 Integración de sonidos MP3 en Ionic con Angular:} Como usuario, quiero que la aplicación reproduzca los sonidos sin errores para que yo pueda entrenarme. \textbf{2 punto de historia} \\
+	\item \textbf{004 Integración de sonidos MP3 en Ionic con Angular:} Como usuario, quiero que la aplicación reproduzca los sonidos sin errores para que yo pueda entrenarme. \textbf{1 punto de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
 	Los sonidos se guardan en los assets y se reproducen sin errores pulsando un botón.
 	
@@ -41,26 +42,33 @@ El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello 
 		\item Crear todas las tablas de BD necesarias.
 	\end{itemize}
 	
-	\item \textbf{006 Servicio de Evaluación de Respuestas:} Como usuario, quiero que mis respuestas sean comparadas con la solución y evaluadas. \textbf{5 puntos de historia} \\
+	\item \textbf{006 Servicio de Evaluación de Respuestas:} Como usuario, quiero que mis respuestas sean comparadas con la solución y evaluadas. \textbf{2 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}}
 	\begin{itemize}
 		\item Crear un servicio EvaluacionService para comprobar las respuestas.
 		\item Las respuestas se comprueban comunicándose con Supabase.
 	\end{itemize}
+	
+	\item \textbf{007 Modulo de internacionalización i18N:} Como usuario, quiero que la aplicación ofrezca la posibilidad de cambiar el idioma para adaptarse a mi idioma nativo. \textbf{1 punto de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se han incluido tres módulos de traducciónes: EN, ES, UA.
 \end{enumerate}
 \subsection{Historia 005: Estructura del Backend}
 La primera tarea que se hizo fue la construcción del entorno de Backend (Historia nº005): empezando con el registro en la plataforma Supabase y acabando con la definición de las tablas, relaciones y reglas de acceso. Las herramientas que proporciona Supabase han sido suficientes para tener el servidor básico en unas 5-6 horas.
 \par El diseño UML de la base de datos es el siguiente:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=12cm]{archivos/bd.drawio.png}
+	\includegraphics[width=10.5cm]{archivos/bd.drawio.png}
 	\caption{Diagrama UML de la Base de Datos.}
 	\label{fig:bd-uml}
 \end{figure}
 \subsection{Historia 001: Walking Skeleton}
-Esta tarea se refiere a la creación de un proyecto base, el prueba adicional de las herramientas ofrecidas por Angular e Ionic, el uso de los componentes del mismo. Para ello, se ha creado un proyecto ejemplo que es una aplicación de la lista de compra, que muestra el correcto funcionamiento de los servicios y los componentes. El siguiente paso ha sido la implementación de la comunicación entre la aplicación y el servidor.
+Esta tarea se refiere a la creación de un proyecto base, el prueba adicional de las herramientas ofrecidas por Angular e Ionic, el uso de los componentes del mismo. Para ello, se ha creado un proyecto ejemplo que es una aplicación de la lista de compra, que muestra el correcto funcionamiento de los servicios y los componentes. El siguiente paso ha sido la implementación de la comunicación entre la aplicación y el servidor. Se ha implementado un módulo básico de inicio de sesión (registro no), para poder comprobar el funcionamiento del login.
+\par Por otro lado, se han creado dos páginas para el usuario logeado, una de inicio que muestra una lista de compra, y la otra que se refiere al perfil del usuario actual.
+
 \subsection{Historia 002: Integración con Supabase}
-Una vez creado el repositorio, se ha procedido a la integración de la API de Supabase dentro de un proyecto básico creado con CLI de Ionic. La integración implica la creación de un servicio de Angular que se comunicará con el servidor dados una URL y un API Key, que se definen en el fichero environment.ts.
+Esta historia tenía como objetivos refinar la página de login y implementar la del registro y, por otro lado, finalizar la funcionalidad de la edición de perfil del usuario.
+
 %\section{Inserción de código}
 %A veces tendrás que insertar algún pedazo de código fuente para explicar algo relacionado con él. No sustituyas explicaciones con códigos enormes. Si pones algo de código en tu TFG que sea para demostrar algo o explicar alguna solución.
 %
