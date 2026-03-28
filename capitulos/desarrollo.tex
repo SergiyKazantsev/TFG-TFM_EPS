@@ -42,14 +42,14 @@ El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello 
 		\item Crear todas las tablas de BD necesarias.
 	\end{itemize}
 	
-	\item \textbf{006 Servicio de Evaluación de Respuestas:} Como usuario, quiero que mis respuestas sean comparadas con la solución y evaluadas. \textbf{2 puntos de historia} \\
+	\item \textbf{006 Servicio de Evaluación de Respuestas:} Como usuario, quiero que mis respuestas sean comparadas con la solución y evaluadas. \textbf{1 punto de historia} \\
 	{\small \textit{Criterios de aceptación:}}
 	\begin{itemize}
 		\item Crear un servicio EvaluacionService para comprobar las respuestas.
 		\item Las respuestas se comprueban comunicándose con Supabase.
 	\end{itemize}
 	
-	\item \textbf{007 Modulo de internacionalización i18N:} Como usuario, quiero que la aplicación ofrezca la posibilidad de cambiar el idioma para adaptarse a mi idioma nativo. \textbf{1 punto de historia} \\
+	\item \textbf{007 Modulo de internacionalización i18N:} Como usuario, quiero que la aplicación ofrezca la posibilidad de cambiar el idioma para adaptarse a mi idioma nativo. \textbf{2 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
 	Se han incluido tres módulos de traducciónes: EN, ES, UA.
 \end{enumerate}
@@ -67,9 +67,72 @@ Esta tarea se refiere a la creación de un proyecto base, el prueba adicional de
 \par Por otro lado, se han creado dos páginas para el usuario logeado, una de inicio que muestra una lista de compra, y la otra que se refiere al perfil del usuario actual.
 
 \subsection{Historia 002: Integración con Supabase}
-Esta historia tenía como objetivos refinar la página de login y implementar la del registro y, por otro lado, finalizar la funcionalidad de la edición de perfil del usuario.
+Esta historia tenía como objetivos mejorar la página de login, implementar la del registro y, por otro lado, finalizar la funcionalidad de la edición de perfil del usuario. Se han creado nuevas tablas SQL auxiliares para almacenar los datos adicionales del usuario que se registra, como es el nombre y apellido.
 
+\subsection{Historia 007: Módulo i18N}
+Se ha decidido implementar el módulo de traducciones con antelación para evitar traducir la aplicación cuando esta esté en las fases avanzadas de desarrollo, para así implementar las traducciones gradualmente y disminuir la carga de trabajo. Para las traducciones, se ha usado la biblioteca de Transloco de Angular que permite especificar las traducciones en un fichero JSON.
+Las traducciones disponibles en la aplicación serán: el inglés, el castellano y el ucraniano.
+
+\subsection{Historia 007: Servicio de evaluación}
+Esta historia tenía como objetivo implementar la comunicación básica entre backend y frontend con el fin de obtener los datos de secciones y ejercicios. Una vez finalizada la historia, pulsando un botón se podía obtener el ejercicio, evaluarlo y registrar el intento.
+
+\subsection{Historia 004: Integración de sonidos}
+Para integrar el reproductor de sonidos dentro de la aplicación, se tenía que buscar una librería ligera que permita hacer pre-carga del audio y reproducirlo al pulsar un botón. La librería seleccionada pertenece a la comunidad de Capacitor, el motor de ejecución multiplataforma.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{archivos/sprint1}
+	\caption{Progreso de los puntos de historia por día}
+	\label{fig:sprint1}
+\end{figure}
+
+\section{Sprint 2}
+Revisando el progreso del primer sprint, se puede observar un buen progreso de desarrollo e implementación de las historias, aunque ha habido una "meseta" de poco progreso debido al estudio de las otras materias.
+\par Las historias planificadas para el segundo sprint han sido:
+\begin{enumerate}
+	\item \textbf{001 Walking skeleton:} Como desarrollador, quiero implementar un flujo mínimo que permita comprobar el correcto funcionamiento del programa.  \textbf{5 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se ha creado una página sencilla en Ionic y Angular. Se comprueba el funcionamiento del login (no registro).
+	
+	\item \textbf{002 Integración con Supabase:} Como usuario, quiero tener una página de login atractiva y que mis datos y acciones se guarden para la siguiente sesión. Para ello tengo que poder crear mi propia cuenta y poder hacer login. \textbf{3 puntos de historia}
+	\\
+	{\small \textit{Criterios de aceptación:}}
+	\begin{itemize}
+		\item El usuario puede registrarse.
+		\item El usuario puede iniciar sesión.
+		\item El usuario puede editar su perfil.
+		\item Sus sesión se guarda en el dispositivo.
+	\end{itemize}
+	
+	\item \textbf{003 Generar sonidos MIDI con Python (básica):} Como usuario, quiero poder reproducir los sonidos y secuencias musicales correctas para entrenar mi oído. \textbf{5 puntos de historia}
+	\\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se han generado las notas de todas las escalas y se han guardado en assets de la aplicación.
+	
+	\item \textbf{004 Integración de sonidos MP3 en Ionic con Angular:} Como usuario, quiero que la aplicación reproduzca los sonidos sin errores para que yo pueda entrenarme. \textbf{1 punto de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Los sonidos se guardan en los assets y se reproducen sin errores pulsando un botón.
+	
+	\item \textbf{005 Estructura del Backend:} Como desarrollador, quiero estructurar mi base de datos para poder organizar todas las entidades, usuarios y lecciones musicales. \textbf{3 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}}
+	\begin{itemize}
+		\item Diseñar una estructura completa del backend
+		\item Crear todas las tablas de BD necesarias.
+	\end{itemize}
+	
+	\item \textbf{006 Servicio de Evaluación de Respuestas:} Como usuario, quiero que mis respuestas sean comparadas con la solución y evaluadas. \textbf{1 punto de historia} \\
+	{\small \textit{Criterios de aceptación:}}
+	\begin{itemize}
+		\item Crear un servicio EvaluacionService para comprobar las respuestas.
+		\item Las respuestas se comprueban comunicándose con Supabase.
+	\end{itemize}
+	
+	\item \textbf{007 Modulo de internacionalización i18N:} Como usuario, quiero que la aplicación ofrezca la posibilidad de cambiar el idioma para adaptarse a mi idioma nativo. \textbf{2 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se han incluido tres módulos de traducciónes: EN, ES, UA.
+\end{enumerate}
 %\section{Inserción de código}
+
 %A veces tendrás que insertar algún pedazo de código fuente para explicar algo relacionado con él. No sustituyas explicaciones con códigos enormes. Si pones algo de código en tu TFG que sea para demostrar algo o explicar alguna solución.
 %
 %\LaTeX~te ayuda a escribir código de manera que su presentación tenga las marcas y tabulaciones propias de este tipo de texto. Para ello, debes poner el código que escribas DENTRO de un entorno  que se llama ``listings''.  La plantilla ya tiene una serie de instrucciones para incluir el paquete ``listings'' y añadirle algunos modificadores por lo que no tienes que incluirlo tú. Simplemente, mete tu código en el entorno ``lstlisting'' y ya está. Puedes indicar el lenguaje en el que está escrito el código y así \LaTeX~lo mostrará mejor. 
