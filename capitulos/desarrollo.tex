@@ -26,12 +26,12 @@ El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello 
 		\item Sus sesión se guarda en el dispositivo.
 	\end{itemize}
 	
-	\item \textbf{003 Generar sonidos MIDI con Python (básica):} Como usuario, quiero poder reproducir los sonidos y secuencias musicales correctas para entrenar mi oído. \textbf{5 puntos de historia}
+	\item \textbf{003 Generar sonidos MP3 con Python (básicos):} Como usuario, quiero poder reproducir los sonidos y secuencias musicales correctas para entrenar mi oído. \textbf{5 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}} \\
 	Se han generado las notas de todas las escalas y se han guardado en assets de la aplicación.
 	
-	\item \textbf{004 Integración de sonidos MP3 en Ionic con Angular:} Como usuario, quiero que la aplicación reproduzca los sonidos sin errores para que yo pueda entrenarme. \textbf{1 punto de historia} \\
+	\item \textbf{004 Integración de sonidos MP3 en Ionic con Angular:} Como usuario, quiero que la aplicación reproduzca los sonidos de forma clara para que yo me pueda entrenar. \textbf{1 punto de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
 	Los sonidos se guardan en los assets y se reproducen sin errores pulsando un botón.
 	
@@ -51,7 +51,7 @@ El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello 
 	
 	\item \textbf{007 Modulo de internacionalización i18N:} Como usuario, quiero que la aplicación ofrezca la posibilidad de cambiar el idioma para adaptarse a mi idioma nativo. \textbf{2 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Se han incluido tres módulos de traducciónes: EN, ES, UA.
+	Se han incluido tres módulos de traducciónes: Inglés, Castellano, Ucraniano.
 \end{enumerate}
 \subsection{Historia 005: Estructura del Backend}
 La primera tarea que se hizo fue la construcción del entorno de Backend (Historia nº005): empezando con el registro en la plataforma Supabase y acabando con la definición de las tablas, relaciones y reglas de acceso. Las herramientas que proporciona Supabase han sido suficientes para tener el servidor básico en unas 5-6 horas.
@@ -79,9 +79,12 @@ Esta historia tenía como objetivo implementar la comunicación básica entre ba
 \subsection{Historia 004: Integración de sonidos}
 Para integrar el reproductor de sonidos dentro de la aplicación, se tenía que buscar una librería ligera que permita hacer pre-carga del audio y reproducirlo al pulsar un botón. La librería seleccionada pertenece a la comunidad de Capacitor, el motor de ejecución multiplataforma.
 
+\subsection{Historia 003: Generar sonidos MP3 con Python}
+Se ha generado un script de Python que permite generar notas a partir de un fichero Soundfont utilizando el API de MIDI.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{archivos/sprint1}
+	\includegraphics[width=0.65\linewidth]{archivos/sprint1}
 	\caption{Progreso de los puntos de historia por día}
 	\label{fig:sprint1}
 \end{figure}
@@ -90,46 +93,23 @@ Para integrar el reproductor de sonidos dentro de la aplicación, se tenía que 
 Revisando el progreso del primer sprint, se puede observar un buen progreso de desarrollo e implementación de las historias, aunque ha habido una "meseta" de poco progreso debido al estudio de las otras materias.
 \par Las historias planificadas para el segundo sprint han sido:
 \begin{enumerate}
-	\item \textbf{001 Walking skeleton:} Como desarrollador, quiero implementar un flujo mínimo que permita comprobar el correcto funcionamiento del programa.  \textbf{5 puntos de historia} \\
+	\item \textbf{008 Entrenamiento - Reconocimiento de altura:} Como usuario, quiero disponer de una sección de introducción que me permita familiarizar con el sistema y el modo del entrenamiento  \textbf {7 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Se ha creado una página sencilla en Ionic y Angular. Se comprueba el funcionamiento del login (no registro).
+	Se ha una sección para el reconocimiento de la altura relativa de las notas. El intento se registra en la parte de Backend y se califica.
 	
-	\item \textbf{002 Integración con Supabase:} Como usuario, quiero tener una página de login atractiva y que mis datos y acciones se guarden para la siguiente sesión. Para ello tengo que poder crear mi propia cuenta y poder hacer login. \textbf{3 puntos de historia}
+	\item \textbf{009 Entrenamiento - Reconocimiento del intervalo:} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los intervalos musicales. \textbf{7 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}}
-	\begin{itemize}
-		\item El usuario puede registrarse.
-		\item El usuario puede iniciar sesión.
-		\item El usuario puede editar su perfil.
-		\item Sus sesión se guarda en el dispositivo.
-	\end{itemize}
+	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
 	
-	\item \textbf{003 Generar sonidos MIDI con Python (básica):} Como usuario, quiero poder reproducir los sonidos y secuencias musicales correctas para entrenar mi oído. \textbf{5 puntos de historia}
+	\item \textbf{010 Feedback visual y vibraciones} Como usuario, quiero que la aplicación haga uso de las herramientas del dispositivo para avisarme si he succedido o fallado. \textbf{2 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}} \\
-	Se han generado las notas de todas las escalas y se han guardado en assets de la aplicación.
+	Durante la realización de los ejercicios, se notifica al usuario de la calificación usando vibraciones en Android. También se usarán Toasts tanto en el navegador como Android.
 	
-	\item \textbf{004 Integración de sonidos MP3 en Ionic con Angular:} Como usuario, quiero que la aplicación reproduzca los sonidos sin errores para que yo pueda entrenarme. \textbf{1 punto de historia} \\
+	\item \textbf{011 Generación de sonidos avanzados con Python:} Como usuario, quiero que la aplicación reproduzca los sonidos sin errores para que yo pueda entrenarme. \textbf{1 punto de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Los sonidos se guardan en los assets y se reproducen sin errores pulsando un botón.
-	
-	\item \textbf{005 Estructura del Backend:} Como desarrollador, quiero estructurar mi base de datos para poder organizar todas las entidades, usuarios y lecciones musicales. \textbf{3 puntos de historia} \\
-	{\small \textit{Criterios de aceptación:}}
-	\begin{itemize}
-		\item Diseñar una estructura completa del backend
-		\item Crear todas las tablas de BD necesarias.
-	\end{itemize}
-	
-	\item \textbf{006 Servicio de Evaluación de Respuestas:} Como usuario, quiero que mis respuestas sean comparadas con la solución y evaluadas. \textbf{1 punto de historia} \\
-	{\small \textit{Criterios de aceptación:}}
-	\begin{itemize}
-		\item Crear un servicio EvaluacionService para comprobar las respuestas.
-		\item Las respuestas se comprueban comunicándose con Supabase.
-	\end{itemize}
-	
-	\item \textbf{007 Modulo de internacionalización i18N:} Como usuario, quiero que la aplicación ofrezca la posibilidad de cambiar el idioma para adaptarse a mi idioma nativo. \textbf{2 puntos de historia} \\
-	{\small \textit{Criterios de aceptación:}} \\
-	Se han incluido tres módulos de traducciónes: EN, ES, UA.
+	Los sonidos se guardan en los assets y se reproducen sin errores en los ejercicios.
 \end{enumerate}
 %\section{Inserción de código}
 
