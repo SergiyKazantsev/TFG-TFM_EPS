@@ -51,7 +51,7 @@ El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello 
 	
 	\item \textbf{007 Modulo de internacionalización i18N:} Como usuario, quiero que la aplicación ofrezca la posibilidad de cambiar el idioma para adaptarse a mi idioma nativo. \textbf{2 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Se han incluido tres módulos de traducciónes: Inglés, Castellano, Ucraniano.
+	Se han incluido tres módulos de traducciones: Inglés, Castellano, Ucraniano.
 \end{enumerate}
 \subsection{Historia 005: Estructura del Backend}
 La primera tarea que se hizo fue la construcción del entorno de Backend (Historia nº005): empezando con el registro en la plataforma Supabase y acabando con la definición de las tablas, relaciones y reglas de acceso. Las herramientas que proporciona Supabase han sido suficientes para tener el servidor básico en unas 5-6 horas.
@@ -59,12 +59,12 @@ La primera tarea que se hizo fue la construcción del entorno de Backend (Histor
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=10.5cm]{archivos/bd.drawio.png}
-	\caption{Diagrama UML de la Base de Datos.}
+	\caption{Diagrama UML de la estructura de la Base de Datos. (versión 1)}
 	\label{fig:bd-uml}
 \end{figure}
 \subsection{Historia 001: Walking Skeleton}
 Esta tarea se refiere a la creación de un proyecto base, el prueba adicional de las herramientas ofrecidas por Angular e Ionic, el uso de los componentes del mismo. Para ello, se ha creado un proyecto ejemplo que es una aplicación de la lista de compra, que muestra el correcto funcionamiento de los servicios y los componentes. El siguiente paso ha sido la implementación de la comunicación entre la aplicación y el servidor. Se ha implementado un módulo básico de inicio de sesión (registro no), para poder comprobar el funcionamiento del login.
-\par Por otro lado, se han creado dos páginas para el usuario logeado, una de inicio que muestra una lista de compra, y la otra que se refiere al perfil del usuario actual.
+\par Por otro lado, se han creado dos páginas para el usuario logeado, una de inicio que muestra una lista de la compra, y la otra que se refiere al perfil del usuario actual.
 
 \subsection{Historia 002: Integración con Supabase}
 Esta historia tenía como objetivos mejorar la página de login, implementar la del registro y, por otro lado, finalizar la funcionalidad de la edición de perfil del usuario. Se han creado nuevas tablas SQL auxiliares para almacenar los datos adicionales del usuario que se registra, como es el nombre y apellido.
@@ -80,37 +80,116 @@ Esta historia tenía como objetivo implementar la comunicación básica entre ba
 Para integrar el reproductor de sonidos dentro de la aplicación, se tenía que buscar una librería ligera que permita hacer pre-carga del audio y reproducirlo al pulsar un botón. La librería seleccionada pertenece a la comunidad de Capacitor, el motor de ejecución multiplataforma.
 
 \subsection{Historia 003: Generar sonidos MP3 con Python}
-Se ha generado un script de Python que permite generar notas a partir de un fichero Soundfont utilizando el API de MIDI.
+Se ha generado un script de Python que permite generar notas a partir de un fichero Soundfont utilizando el API de MIDI. Para esta aplicación, se han generado todas las notas posibles de las 3 octavas más usadas: la cuarta, quinta y sexta.
 
+\subsection{Burn-up chart del sprint 1.}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.65\linewidth]{archivos/sprint1}
-	\caption{Progreso de los puntos de historia por día}
+	\includegraphics[width=1\linewidth]{archivos/sprint1}
+	\caption{Burn-up chart del sprint 1.}
 	\label{fig:sprint1}
 \end{figure}
 
 \section{Sprint 2}
-Revisando el progreso del primer sprint, se puede observar un buen progreso de desarrollo e implementación de las historias, aunque ha habido una "meseta" de poco progreso debido al estudio de las otras materias.
+Revisando el progreso del primer sprint, se puede observar un buen progreso de desarrollo e implementación de las historias, aunque ha habido una "meseta" de poco progreso debido al estudio de las otras materias. Por ello, se ha decidido apliar el volumen de los puntos de historia hasta los 25 puntos, para aprovechar mejor el sprint siguiendo un desarrollo constante.
 \par Las historias planificadas para el segundo sprint han sido:
 \begin{enumerate}
 	\item \textbf{008 Entrenamiento - Reconocimiento de altura:} Como usuario, quiero disponer de una sección de introducción que me permita familiarizar con el sistema y el modo del entrenamiento  \textbf {7 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Se ha una sección para el reconocimiento de la altura relativa de las notas. El intento se registra en la parte de Backend y se califica.
+	Se ha creado una sección para el reconocimiento de la altura relativa de las notas. El intento se registra en la parte de Backend y se califica.
 	
 	\item \textbf{009 Entrenamiento - Reconocimiento del intervalo:} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los intervalos musicales. \textbf{7 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}}
 	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
 	
-	\item \textbf{010 Feedback visual y vibraciones} Como usuario, quiero que la aplicación haga uso de las herramientas del dispositivo para avisarme si he succedido o fallado. \textbf{2 puntos de historia}
+	\item \textbf{010 Entrenamiento - Reconocimiento de los tonos y semitonos} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los tonos y semitonos \textbf{5 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}} \\
-	Durante la realización de los ejercicios, se notifica al usuario de la calificación usando vibraciones en Android. También se usarán Toasts tanto en el navegador como Android.
+	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
 	
-	\item \textbf{011 Generación de sonidos avanzados con Python:} Como usuario, quiero que la aplicación reproduzca los sonidos sin errores para que yo pueda entrenarme. \textbf{1 punto de historia} \\
+	\item \textbf{011 Generación de sonidos avanzados con Python:} Como usuario, quiero que la aplicación reproduzca los sonidos como los intervalos para que yo pueda entrenarme. \textbf{3 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Los sonidos se guardan en los assets y se reproducen sin errores en los ejercicios.
+	Los sonidos se guardan en los assets y se reproducen correctamente en los ejercicios.
+	
+	\item \textbf{012 Diseñar el logotipo y los iconos:} Como usuario, quiero que la aplicación tenga un logotipo/icono para que pueda simpatizar con ella y que pueda distinguirla del resto de las aplicaciones.  \textbf{3 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se ha diseñado un logotipo que aparecerá como el icono del sitio web y en las aplicaciones de Android.
 \end{enumerate}
+\subsection{Historia 008: Módulo de reconocimiento de alturas.}
+Haciendo uso de las notas generadas en la historia 003, se ha creado el primer módulo introductor que permite al usuario entrenar la capacidad básica del reconocimiento musical. Cada ejercicio se genera de forma aleatoria, seleccionando una nota base y otra a una determinada distancia, de 1 a 10 semitonos.
+
+\subsection{Historia 010 - Módulo de reconocimiento de los tonos y semitonos.}
+Este módulo es la continuación del entrenamiento de reconocimiento de las notas. Esta vez, usando los audios generados previamente, se generan unos ejercicios aleatorios seleccionando una nota base, y la otra de 1 a 2 semitonos de distancia. El objetivo del usuario se determinar esta distancia.
+
+\subsection{Historia 012: Diseñar el logotipo y los iconos.}
+Con esta tarea, antes de todo, se ha tenido que pensar en el nombre de la aplicación, su diseño y una mascota que represente la aplicación. Como el nombre, se ha elegido un juego de palabras \textbf{Orcastra}, juntando las palabras Orca y Orquesta. Por lo cual, la paleta de colores de la aplicación será el azul marino, ya que las orcas son animales acuáticos. Por el mismo motivo, el logotipo y el icono de la aplicación será una orca enseñando música en un piano. El logotipo se ha generado usando la herramienta de Canva y posteriormente se ha editado en Photoshop.
+
+\subsection{Historia 011: Generación de sonidos avanzados con Python.}
+Con esta historia se han generado los intervalos de todas las notas de las octavas cuatro, cinco y seis: más de 450 audios en total. Para ello, se ha usado tanto Python como una aplicación gratuita para editar los archivos \gls{midi}, MuseScore. Como resultado, se han generado los archivos .wav de cada uno de los intervalos. Posteriormente se han comprimido usando FFMPEG al formato .mp3, disminuyendo el tamaño de 250MB hasta >10MB.
+
+\subsection{Historia 009: Módulo de reconocimiento de intervalos.}
+El módulo de reconocimiento de intervalos se ha dividido en tres lecciones separadas, para agilizar el proceso del aprendizaje y enseñar los distintos atributos de los intervalos. La primera lección trata sobre el reconocimiento de los intervalos perfectos: el unísono, cuarta justa, quinta justa y octava. Dentro de la siguiente lección se aprende el reconocimiento de los intervalos mayores y menores, que en total son 8. Finalmente, en la última, el objetivo es reconocer cualquiera de los 12 intervalos posibles.
+
+\subsection{Burn-up chart del sprint 2.}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{archivos/screenshot005}
+	\caption[Revisión]{Burn-up chart del sprint 2.}
+	\label{fig:screenshot005}
+\end{figure}
+
+\section{Revisión de los sprints 1 y 2.}
+La aplicación tras un mes de desarrollo presenta varias funcionalidades esenciales de la aplicación, quedando por implementar el entrenamiento del reconocimiento de las escalas, acordes y ritmo. Por otro lado, también hace falta mejorar el diseño visual de la aplicación y hacerlo más atractivo. El resultado de los dos sprints es el siguiente:
+\begin{figure}[H]
+	\centering
+	% Control the border thickness and padding
+	\setlength{\fboxrule}{0.3pt} % Thickness of the contour
+	\setlength{\fboxsep}{0pt}    % Space between image and contour (0pt for tight fit)
+	
+	\begin{subfigure}{0.4\linewidth}
+		\centering
+		\fbox{\includegraphics[width=0.5\linewidth]{archivos/screenshot001}}
+		\caption[Página de inicio de sesión]{Página de inicio de sesión}
+		\label{fig:screenshot001}
+	\end{subfigure}
+	\hfill 
+	\begin{subfigure}{0.4\linewidth}
+		\centering
+		\fbox{\includegraphics[width=0.5\linewidth]{archivos/screenshot002}}
+		\caption[Página de inicio]{Página principal}
+		\label{fig:screenshot002}
+	\end{subfigure}
+
+	\caption{Pantallas vistas desde el móvil}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0.3pt} % Made slightly thicker so it's visible
+	\setlength{\fboxsep}{0pt}    
+	
+	\begin{subfigure}{0.4\linewidth}
+		\centering
+		% Wrap the command here:
+		\fbox{\includegraphics[width=0.5\linewidth]{archivos/screenshot003}}
+		\caption[Página de la lección]{Página de la lección de tonos y semitonos}
+		\label{fig:screenshot003}
+	\end{subfigure}
+	\hfill 
+	\begin{subfigure}{0.4\linewidth}
+		\centering
+		% And wrap it here:
+		\fbox{\includegraphics[width=0.5\linewidth]{archivos/screenshot004}}
+		\caption[Página de resultados]{Página de los resultados del ejercicio.}
+		\label{fig:screenshot004}
+	\end{subfigure}
+	
+	\caption{Pantallas vistas desde el móvil: Ejercicios}
+\end{figure}
+
+
+
 %\section{Inserción de código}
 
 %A veces tendrás que insertar algún pedazo de código fuente para explicar algo relacionado con él. No sustituyas explicaciones con códigos enormes. Si pones algo de código en tu TFG que sea para demostrar algo o explicar alguna solución.
