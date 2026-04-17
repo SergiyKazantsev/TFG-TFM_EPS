@@ -188,6 +188,44 @@ La aplicación tras un mes de desarrollo presenta varias funcionalidades esencia
 	\caption{Pantallas vistas desde el móvil: Ejercicios}
 \end{figure}
 
+\newpage
+\section{Sprint 3}
+Para este sprint se han seleccionado tanto las historias relacionadas con el entrenamiento, como las que mejorarán la expiriencia del usuario en otros aspectos de la aplicación. Esto permitirá que nuestro proyecto sea atractivo y fácil de usar por parte del usuario
+\par Las historias planificadas para el tercer sprint han sido:
+\begin{enumerate}
+	\item \textbf{013 - Login a través de OAuth (Google):} Como usuario, quiero poder registrarme e iniciar sesión usando mi cuenta de Google, para acelerar el proceso.\textbf {3 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se ha creado la opción "Iniciar sesión con Google" en la página de inicio de sesión.
+	
+	\item \textbf{014 - Módulo de reconocimiento de escalas:} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer las escalas musicales. \textbf{7 puntos de historia}
+	\\
+	{\small \textit{Criterios de aceptación:}}
+	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
+	
+	\item \textbf{015 - Módulo de reconocimiento de acordes} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los acordes \textbf{7 puntos de historia}
+	\\
+	{\small \textit{Criterios de aceptación:}} \\
+	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
+	
+	\item \textbf{016 Recuperación de la contraseña olvidada:} Como usuario, quiero que en el caso de que se me olvide la contraseña, pueda establecer una nueva  \textbf{3 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se ha creado la opción "Recuperar contraseña" en la página de inicio de sesión.
+	
+	\item \textbf{017 Generación de sonidos (escalas y acordes, con Python):} Como usuario, quiero que la aplicación reproduzca los sonidos como las escalas y acordes para que yo pueda entrenarme. \textbf{3 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Los sonidos se guardan en los assets y se reproducen correctamente en los ejercicios.
+	
+\end{enumerate}
+\subsection{Historia 013: Login a través de OAuth (Google).}
+Para realizar la tarea, se han creado dos clientes (Web y Android) usando Google Cloud, que permite la integración de OAuth con Supabase. El ID de los clientes se usa en el frontend, se pasa a Supabase y se compara con el ID de Google Cloud. De momento se ha implementado para pruebas en local, dado que la aplicación no se ha desplegado.
+
+\subsection{Historia 017: Generación de sonidos (escalas y acordes, con Python).}
+Se han generado los sonidos de las escalas y acordes más importantes. Por otro lado, también se añaden, por un lado, las escalas que se reproducen con la mitad de la velocidad de las originales, y por otro, los audios que reproduce cada nota de un acórde secuencialmente. Esto permite hacer el ejercicio más fácil y fomentar el aprendizaje. Adicionalmente, todos los audios se han comprimido usando FFMPEG.
+
+\subsection{Historia 016: Recuperación de la contraseña olvidada.}
+El cambio de contraseña se ha implementado usando el servidor SMTP propio de Supabase que permite enviar hasta 2 correos electrónicos cada hora. Cada correo incluye un token de un solo uso que permite resetear la contraseña y posteriormente iniciar sesión.
+
+\subsection{Burn-up chart del sprint 3.}
 
 
 %\section{Inserción de código}
