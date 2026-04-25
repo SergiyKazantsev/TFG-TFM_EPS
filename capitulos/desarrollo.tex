@@ -67,7 +67,14 @@ Esta tarea se refiere a la creación de un proyecto base, el prueba adicional de
 \par Por otro lado, se han creado dos páginas para el usuario logeado, una de inicio que muestra una lista de la compra, y la otra que se refiere al perfil del usuario actual.
 
 \subsection{Historia 002: Integración con Supabase}
-Esta historia tenía como objetivos mejorar la página de login, implementar la del registro y, por otro lado, finalizar la funcionalidad de la edición de perfil del usuario. Se han creado nuevas tablas SQL auxiliares para almacenar los datos adicionales del usuario que se registra, como es el nombre y apellido.
+Esta historia tenía como objetivos mejorar la página de login, implementar la del registro y, por otro lado, finalizar la funcionalidad de la edición de perfil del usuario. Se han creado nuevas tablas SQL auxiliares para almacenar los datos adicionales del usuario que se registra, como es el nombre y apellido. \citep{supabase-user-management-2026}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{archivos/screenshot_supabase}
+	\caption{Usuarios registrados, vistos dentro de Supabase.}
+	\label{fig:screenshotsupabase}
+\end{figure}
+
 
 \subsection{Historia 007: Módulo i18N}
 Se ha decidido implementar el módulo de traducciones con antelación para evitar traducir la aplicación cuando esta esté en las fases avanzadas de desarrollo, para así implementar las traducciones gradualmente y disminuir la carga de trabajo. Para las traducciones, se ha usado la biblioteca de Transloco de Angular que permite especificar las traducciones en un fichero JSON.
@@ -81,11 +88,25 @@ Para integrar el reproductor de sonidos dentro de la aplicación, se tenía que 
 
 \subsection{Historia 003: Generar sonidos MP3 con Python}
 Se ha generado un script de Python que permite generar notas a partir de un fichero Soundfont utilizando el API de MIDI. Para esta aplicación, se han generado todas las notas posibles de las 3 octavas más usadas: la cuarta, quinta y sexta.
+\begin{lstlisting}[language=Python, caption=Generación de notas]
+	def generate_notes(start_note, end_note):
+		for midi_note in range(start_note, end_note + 1):
+			midi, piano = create_piano_midi()
+			piano.notes.append(
+			pm.Note(
+				velocity=100,
+				pitch=midi_note,
+				start=0.0,
+				end=1.0
+			)
+		)
+		midi.write(f"{midi_note}.mid")
+\end{lstlisting}
 
 \subsection{Burn-up chart del sprint 1.}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{archivos/sprint1}
+	\includegraphics[width=0.8\linewidth]{archivos/sprint1}
 	\caption{Burn-up chart del sprint 1.}
 	\label{fig:sprint1}
 \end{figure}
@@ -94,7 +115,7 @@ Se ha generado un script de Python que permite generar notas a partir de un fich
 Revisando el progreso del primer sprint, se puede observar un buen progreso de desarrollo e implementación de las historias, aunque ha habido una "meseta" de poco progreso debido al estudio de las otras materias. Por ello, se ha decidido apliar el volumen de los puntos de historia hasta los 25 puntos, para aprovechar mejor el sprint siguiendo un desarrollo constante.
 \par Las historias planificadas para el segundo sprint han sido:
 \begin{enumerate}
-	\item \textbf{008 Entrenamiento - Reconocimiento de altura:} Como usuario, quiero disponer de una sección de introducción que me permita familiarizar con el sistema y el modo del entrenamiento  \textbf {7 puntos de historia} \\
+	\item \textbf{008 Entrenamiento - Reconocimiento de altura:} Como usuario, quiero disponer de una sección de introducción que me permita familiarizar con el sistema y el modo del entrenamiento. \textbf{7 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
 	Se ha creado una sección para el reconocimiento de la altura relativa de las notas. El intento se registra en la parte de Backend y se califica.
 	
@@ -124,9 +145,40 @@ Este módulo es la continuación del entrenamiento de reconocimiento de las nota
 
 \subsection{Historia 012: Diseñar el logotipo y los iconos.}
 Con esta tarea, antes de todo, se ha tenido que pensar en el nombre de la aplicación, su diseño y una mascota que represente la aplicación. Como el nombre, se ha elegido un juego de palabras \textbf{Orcastra}, juntando las palabras Orca y Orquesta. Por lo cual, la paleta de colores de la aplicación será el azul marino, ya que las orcas son animales acuáticos. Por el mismo motivo, el logotipo y el icono de la aplicación será una orca enseñando música en un piano. El logotipo se ha generado usando la herramienta de Canva y posteriormente se ha editado en Photoshop.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{archivos/orca.png}
+	\caption{El logotipo de la aplicación}
+	\label{fig:orca}
+\end{figure}
 
 \subsection{Historia 011: Generación de sonidos avanzados con Python.}
 Con esta historia se han generado los intervalos de todas las notas de las octavas cuatro, cinco y seis: más de 450 audios en total. Para ello, se ha usado tanto Python como una aplicación gratuita para editar los archivos \gls{midi}, MuseScore. Como resultado, se han generado los archivos .wav de cada uno de los intervalos. Posteriormente se han comprimido usando FFMPEG al formato .mp3, disminuyendo el tamaño de 250MB hasta >10MB.
+
+\begin{lstlisting}[language=Python, caption=Generación de intervalos]
+	def generate_intervals(start_note, intervals, duration=1.0):
+		for interval in intervals:
+			midi, piano = create_piano_midi()
+			piano.notes.append(
+				pm.Note(
+					velocity=100,
+					pitch=start_note,
+					start=0.0,
+					end=duration
+				)
+			)
+				piano.notes.append(
+				pm.Note(
+					velocity=100,
+					pitch=start_note + interval,
+					start=duration,
+					end=duration * 2
+				)
+			)
+		
+		filename = f"Interval_{start_note}_{interval}.mid"
+		midi.write(filename)
+\end{lstlisting}
 
 \subsection{Historia 009: Módulo de reconocimiento de intervalos.}
 El módulo de reconocimiento de intervalos se ha dividido en tres lecciones separadas, para agilizar el proceso del aprendizaje y enseñar los distintos atributos de los intervalos. La primera lección trata sobre el reconocimiento de los intervalos perfectos: el unísono, cuarta justa, quinta justa y octava. Dentro de la siguiente lección se aprende el reconocimiento de los intervalos mayores y menores, que en total son 8. Finalmente, en la última, el objetivo es reconocer cualquiera de los 12 intervalos posibles.
@@ -134,7 +186,7 @@ El módulo de reconocimiento de intervalos se ha dividido en tres lecciones sepa
 \subsection{Burn-up chart del sprint 2.}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{archivos/screenshot005}
+	\includegraphics[width=0.8\linewidth]{archivos/screenshot005}
 	\caption[Revisión]{Burn-up chart del sprint 2.}
 	\label{fig:screenshot005}
 \end{figure}
@@ -190,7 +242,7 @@ La aplicación tras un mes de desarrollo presenta varias funcionalidades esencia
 
 \newpage
 \section{Sprint 3}
-Para este sprint se han seleccionado tanto las historias relacionadas con el entrenamiento, como las que mejorarán la expiriencia del usuario en otros aspectos de la aplicación. Esto permitirá que nuestro proyecto sea atractivo y fácil de usar por parte del usuario
+Para este sprint se han seleccionado tanto las historias relacionadas con el entrenamiento, como las que mejorarán la experiencia del usuario en otros aspectos de la aplicación. Esto permitirá que nuestro proyecto sea atractivo y fácil de usar por parte del usuario
 \par Las historias planificadas para el tercer sprint han sido:
 \begin{enumerate}
 	\item \textbf{013 - Login a través de OAuth (Google):} Como usuario, quiero poder registrarme e iniciar sesión usando mi cuenta de Google, para acelerar el proceso.\textbf {3 puntos de historia} \\
@@ -202,7 +254,7 @@ Para este sprint se han seleccionado tanto las historias relacionadas con el ent
 	{\small \textit{Criterios de aceptación:}}
 	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
 	
-	\item \textbf{015 - Módulo de reconocimiento de acordes} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los acordes \textbf{7 puntos de historia}
+	\item \textbf{015 - Módulo de reconocimiento de acordes} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los acordes \textbf{5 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}} \\
 	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
@@ -211,23 +263,100 @@ Para este sprint se han seleccionado tanto las historias relacionadas con el ent
 	{\small \textit{Criterios de aceptación:}} \\
 	Se ha creado la opción "Recuperar contraseña" en la página de inicio de sesión.
 	
-	\item \textbf{017 Generación de sonidos (escalas y acordes, con Python):} Como usuario, quiero que la aplicación reproduzca los sonidos como las escalas y acordes para que yo pueda entrenarme. \textbf{3 puntos de historia} \\
+	\item \textbf{017 Generación de sonidos (escalas y acordes, con Python):} Como usuario, quiero que la aplicación reproduzca los sonidos como las escalas y acordes para que yo pueda entrenarme. \textbf{5 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
 	Los sonidos se guardan en los assets y se reproducen correctamente en los ejercicios.
 	
+	\item \textbf{018 Mejorar la UI:} Como usuario, quiero que la aplicación sea agradable de usar tanto en el móvil como en el navegador  \textbf{2 puntos de historia.}
+	{\small \textit{Criterios de aceptación:}} \\
+	Se han actualizado las páginas de Inicio y Perfil de usuario.
+	
 \end{enumerate}
 \subsection{Historia 013: Login a través de OAuth (Google).}
-Para realizar la tarea, se han creado dos clientes (Web y Android) usando Google Cloud, que permite la integración de OAuth con Supabase. El ID de los clientes se usa en el frontend, se pasa a Supabase y se compara con el ID de Google Cloud. De momento se ha implementado para pruebas en local, dado que la aplicación no se ha desplegado.
+Para realizar la tarea, se han creado dos clientes (Web y Android) usando Google Cloud, que permite la integración de OAuth con Supabase. El ID de los clientes se usa en el frontend, se pasa a Supabase y se compara con el ID de Google Cloud. De momento se ha implementado para pruebas en local, dado que la aplicación no se ha desplegado. \citep{capgo, supabase-google-login-2026}
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\linewidth]{archivos/screenshot010}
+	\caption{Consola de Google Cloud, implementación del cliente Web.}
+	\label{fig:screenshot010}
+\end{figure}
 
 \subsection{Historia 017: Generación de sonidos (escalas y acordes, con Python).}
-Se han generado los sonidos de las escalas y acordes más importantes. Por otro lado, también se añaden, por un lado, las escalas que se reproducen con la mitad de la velocidad de las originales, y por otro, los audios que reproduce cada nota de un acórde secuencialmente. Esto permite hacer el ejercicio más fácil y fomentar el aprendizaje. Adicionalmente, todos los audios se han comprimido usando FFMPEG.
+Se han generado los sonidos de las escalas y acordes más importantes. Por otro lado, también se añaden, por un lado, las escalas que se reproducen con la mitad de la velocidad de las originales, y por otro, los audios que reproduce cada nota de un acorde secuencialmente. Esto permite hacer el ejercicio más fácil y fomentar el aprendizaje. Adicionalmente, todos los audios se han comprimido usando FFMPEG.
 
 \subsection{Historia 016: Recuperación de la contraseña olvidada.}
 El cambio de contraseña se ha implementado usando el servidor SMTP propio de Supabase que permite enviar hasta 2 correos electrónicos cada hora. Cada correo incluye un token de un solo uso que permite resetear la contraseña y posteriormente iniciar sesión.
 
+\subsection{Historia 014: Módulo de reconocimiento de escalas}
+El módulo implementado se ha dividido en tres lecciones: la primera sirve para aprender a distinguir entre las escalas mayores y menores, la segunda para distinguir distintos tipos de escalas menores, y en la tercera el objetivo es reconocer todas las escalas, tanto la escala mayor como las menores. Por otro lado, el módulo facilita el aprendizaje introduciendo nueva funcionalidad de reproducción de audio. La primera vez que se reproduce, esto se hace a una velocidad normal; si el usuario quiere escuchar el audio de nuevo, se reproduce a una velocidad menor (el doble de tiempo). 
+
+\subsection{Historia 015: Módulo de reconocimiento de acordes}
+El objetivo de este módulo es aprender distinguir los distintos acordes, que pueden ser: Mayor, Menor, Aumentado, Disminuido. Como son pocos, se ha implementado todo el programa en una sola lección. Al igual que el módulo anterior, incorpora una funcionalidad que pretende mejorar la experiencia de usuario a la hora de realizar el ejercicio. La primera vez que se escucha el acorde, suena como debería: todas las notas al mismo tiempo. Sin embargo, la segunda vez, el acórde se "rompe" y las notas se reproducen secuencialmente.
+
+\subsection{Historia 018: Mejorar la UI}
+Debido a que la aplicación se implementa tanto para Web como para Android, tiene que ser agradable para las dos plataformas. Dado que Ionic es sobre todo un framework para móviles, se tenían que realizar algunos ajustes para mejorar la interfaz en la Web. Sin embargo, también se han cambiado otros aspectos de la aplicación, como la introducción de nuevos colores para permitir distinguir las opciones; por otro lado, se ha cambiado la página del perfil del usuario. El resultado final ha sido el siguiente:
+\begin{figure}[H]
+	\setlength{\fboxrule}{0.3pt} % Made slightly thicker so it's visible
+	\setlength{\fboxsep}{0pt} 
+	\centering
+	\fbox{\includegraphics[width=0.8\linewidth]{archivos/screenshot006}}
+	\label{fig:screenshot006}
+	\caption{Pantalla principal actualizada (Web)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0.3pt} % Made slightly thicker so it's visible
+	\setlength{\fboxsep}{0pt}
+	\begin{subfigure}{0.4\linewidth}
+		\centering
+		% Wrap the command here:
+		\fbox{\includegraphics[width=0.45\linewidth]{archivos/screenshot007}}
+		\label{fig:screenshot007}
+		\caption{Pantalla principal}
+	\end{subfigure}
+	\hfill 
+	\begin{subfigure}{0.4\linewidth}
+		\centering
+		% And wrap it here:
+		\fbox{\includegraphics[width=0.45\linewidth]{archivos/screenshot008}}
+		\label{fig:screenshot008}
+		\caption{Pantalla del perfil del usuario}
+	\end{subfigure}
+	\caption{Pantalla actualizadas (Android)}
+\end{figure}
+
 \subsection{Burn-up chart del sprint 3.}
-
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\linewidth]{archivos/screenshot009}
+	\caption{Burn-up chart del sprint 3.}
+	\label{fig:screenshot009}
+\end{figure}
+\newpage
+\section{Sprint 4}
+Este sprint, dado que es uno de los finales, incorporará distintas mejoras de la \gls{ux} y arreglos de bugs y errores. También se desarrollarán nuevas funcionalidades relacionadas con el aprendizaje.
+\par Las historias planificadas para el tercer sprint han sido:
+\begin{enumerate}
+	\item \textbf{019 - Botón de compartir resultados:} Como usuario, quiero poder compartir mis resultados con mis compañeros o con mi profesor de música.\textbf {3 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se ha creado un botón "Compartir resultados" al finalizar una lección. Se podrá compartir a través de redes sociales una imagen que incluirá la fecha y el nombre del usuario.
+	
+	\item \textbf{020 - Entrenador libre:} Como usuario, quiero tener la opción de entrenarme para poder prepararme ante una lección. \textbf{7 puntos de historia}
+	\\
+	{\small \textit{Criterios de aceptación:}}
+	Se ha creado una página "Entrenador libre" que le permite al usuario seleccionar la categoría que quiere entrenar, y los distintos ajustes dependiendo de la categoría. Por ejemplo, en la categoría "Escalas" podrá seleccionar qué escalas quiere que entren a los ejercicios y cuáles no.
+	
+	\item \textbf{021 - Generación de sonidos: Ritmos (Python)} Como usuario, quiero que la aplicación tenga suficientes sonidos para poder reconocer los ritmos. \textbf{5 puntos de historia}
+	\\
+	{\small \textit{Criterios de aceptación:}} \\
+	El usuario puede acceder al módulo. Habrá varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
+	
+	\item \textbf{022 - Módulo de reconocimiento de ritmos:} Como usuario, quiero tener un módulo que me permita entrenar los ritmos.  \textbf{7 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se ha creado el módulo de reconocimiento de ritmos.
+	
+\end{enumerate}
 %\section{Inserción de código}
 
 %A veces tendrás que insertar algún pedazo de código fuente para explicar algo relacionado con él. No sustituyas explicaciones con códigos enormes. Si pones algo de código en tu TFG que sea para demostrar algo o explicar alguna solución.
