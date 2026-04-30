@@ -122,12 +122,12 @@ Revisando el progreso del primer sprint, se puede observar un buen progreso de d
 	\item \textbf{009 Entrenamiento - Reconocimiento del intervalo:} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los intervalos musicales. \textbf{7 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}}
-	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
+	El usuario puede acceder al módulo. Habrá varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
 	
 	\item \textbf{010 Entrenamiento - Reconocimiento de los tonos y semitonos} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los tonos y semitonos \textbf{5 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}} \\
-	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
+	El usuario puede acceder al módulo. Habrá varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
 	
 	\item \textbf{011 Generación de sonidos avanzados con Python:} Como usuario, quiero que la aplicación reproduzca los sonidos como los intervalos para que yo pueda entrenarme. \textbf{3 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
@@ -242,7 +242,7 @@ La aplicación tras un mes de desarrollo presenta varias funcionalidades esencia
 
 \newpage
 \section{Sprint 3}
-Para este sprint se han seleccionado tanto las historias relacionadas con el entrenamiento, como las que mejorarán la experiencia del usuario en otros aspectos de la aplicación. Esto permitirá que nuestro proyecto sea atractivo y fácil de usar por parte del usuario
+Para este sprint se han seleccionado tanto las historias relacionadas con el entrenamiento, como las que mejorarán la experiencia del usuario en otros aspectos de la aplicación. Esto permitirá que nuestro proyecto sea atractivo y fácil de usar por parte del usuario.
 \par Las historias planificadas para el tercer sprint han sido:
 \begin{enumerate}
 	\item \textbf{013 - Login a través de OAuth (Google):} Como usuario, quiero poder registrarme e iniciar sesión usando mi cuenta de Google, para acelerar el proceso.\textbf {3 puntos de historia} \\
@@ -252,12 +252,12 @@ Para este sprint se han seleccionado tanto las historias relacionadas con el ent
 	\item \textbf{014 - Módulo de reconocimiento de escalas:} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer las escalas musicales. \textbf{7 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}}
-	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
+	El usuario puede acceder al módulo. Habrá varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
 	
-	\item \textbf{015 - Módulo de reconocimiento de acordes} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los acordes \textbf{5 puntos de historia}
+	\item \textbf{015 - Módulo de reconocimiento de acordes} Como usuario, quiero disponer de un módulo que me permita entrenar la habilidad de reconocer los acordes. \textbf{5 puntos de historia}
 	\\
 	{\small \textit{Criterios de aceptación:}} \\
-	El usuario puede acceder al módulo. Habrán varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
+	El usuario puede acceder al módulo. Habrá varias respuestas para cada uno de los ejercicios. El intento se registrará en el Backend y será calificado.
 	
 	\item \textbf{016 Recuperación de la contraseña olvidada:} Como usuario, quiero que en el caso de que se me olvide la contraseña, pueda establecer una nueva  \textbf{3 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
@@ -282,19 +282,19 @@ Para realizar la tarea, se han creado dos clientes (Web y Android) usando Google
 \end{figure}
 
 \subsection{Historia 017: Generación de sonidos (escalas y acordes, con Python).}
-Se han generado los sonidos de las escalas y acordes más importantes. Por otro lado, también se añaden, por un lado, las escalas que se reproducen con la mitad de la velocidad de las originales, y por otro, los audios que reproduce cada nota de un acorde secuencialmente. Esto permite hacer el ejercicio más fácil y fomentar el aprendizaje. Adicionalmente, todos los audios se han comprimido usando FFMPEG.
+Se han generado los sonidos de las escalas y acordes más importantes. Por otro lado, también se han añadido las escalas que se reproducen con la mitad de la velocidad de las originales, y, también, los audios que reproduce cada nota de un acorde secuencialmente. Esto permite hacer el ejercicio más fácil y fomentar el aprendizaje. Adicionalmente, todos los audios se han comprimido usando FFMPEG.
 
 \subsection{Historia 016: Recuperación de la contraseña olvidada.}
 El cambio de contraseña se ha implementado usando el servidor SMTP propio de Supabase que permite enviar hasta 2 correos electrónicos cada hora. Cada correo incluye un token de un solo uso que permite resetear la contraseña y posteriormente iniciar sesión.
 
 \subsection{Historia 014: Módulo de reconocimiento de escalas}
-El módulo implementado se ha dividido en tres lecciones: la primera sirve para aprender a distinguir entre las escalas mayores y menores, la segunda para distinguir distintos tipos de escalas menores, y en la tercera el objetivo es reconocer todas las escalas, tanto la escala mayor como las menores. Por otro lado, el módulo facilita el aprendizaje introduciendo nueva funcionalidad de reproducción de audio. La primera vez que se reproduce, esto se hace a una velocidad normal; si el usuario quiere escuchar el audio de nuevo, se reproduce a una velocidad menor (el doble de tiempo). 
+El módulo implementado se ha dividido en tres lecciones: la primera sirve para aprender a distinguir entre las escalas mayores y menores, la segunda para distinguir distintos tipos de escalas menores, y en la tercera el objetivo es reconocer todas las escalas, tanto la escala mayor como las menores. Por otro lado, el módulo facilita el aprendizaje introduciendo una nueva funcionalidad de reproducción de audio. La primera vez que se reproduce, esto se hace a una velocidad normal; si el usuario quiere escuchar el audio de nuevo, se reproduce a una velocidad menor (el doble de tiempo). 
 
 \subsection{Historia 015: Módulo de reconocimiento de acordes}
-El objetivo de este módulo es aprender distinguir los distintos acordes, que pueden ser: Mayor, Menor, Aumentado, Disminuido. Como son pocos, se ha implementado todo el programa en una sola lección. Al igual que el módulo anterior, incorpora una funcionalidad que pretende mejorar la experiencia de usuario a la hora de realizar el ejercicio. La primera vez que se escucha el acorde, suena como debería: todas las notas al mismo tiempo. Sin embargo, la segunda vez, el acórde se "rompe" y las notas se reproducen secuencialmente.
+El objetivo de este módulo es aprender a distinguir los distintos acordes, que pueden ser: Mayor, Menor, Aumentado, Disminuido. Como son pocos, se ha implementado todo el programa en una sola lección. Al igual que el módulo anterior, incorpora una funcionalidad que pretende mejorar la experiencia de usuario a la hora de realizar el ejercicio. La primera vez que se escucha el acorde, suena como debería: todas las notas al mismo tiempo. Sin embargo, la segunda vez, el acórde se "rompe" y las notas se reproducen secuencialmente.
 
 \subsection{Historia 018: Mejorar la UI}
-Debido a que la aplicación se implementa tanto para Web como para Android, tiene que ser agradable para las dos plataformas. Dado que Ionic es sobre todo un framework para móviles, se tenían que realizar algunos ajustes para mejorar la interfaz en la Web. Sin embargo, también se han cambiado otros aspectos de la aplicación, como la introducción de nuevos colores para permitir distinguir las opciones; por otro lado, se ha cambiado la página del perfil del usuario. El resultado final ha sido el siguiente:
+Debido a que la aplicación se implementa tanto para Web como para Android, tiene que ser agradable para las dos plataformas. Dado que Ionic es un framework orientado principalmente a móviles, se tenían que realizar algunos ajustes para mejorar la interfaz en la Web. Sin embargo, también se han cambiado otros aspectos de la aplicación, como la introducción de nuevos colores para permitir distinguir las opciones; por otro lado, se ha cambiado la página del perfil del usuario. El resultado final ha sido el siguiente:
 \begin{figure}[H]
 	\setlength{\fboxrule}{0.3pt} % Made slightly thicker so it's visible
 	\setlength{\fboxsep}{0pt} 
@@ -323,7 +323,7 @@ Debido a que la aplicación se implementa tanto para Web como para Android, tien
 		\label{fig:screenshot008}
 		\caption{Pantalla del perfil del usuario}
 	\end{subfigure}
-	\caption{Pantalla actualizadas (Android)}
+	\caption{Pantallas actualizadas (Android)}
 \end{figure}
 
 \subsection{Burn-up chart del sprint 3.}
@@ -335,8 +335,8 @@ Debido a que la aplicación se implementa tanto para Web como para Android, tien
 \end{figure}
 \newpage
 \section{Sprint 4}
-Este sprint, dado que es uno de los finales, incorporará distintas mejoras de la \gls{ux} y arreglos de bugs y errores. También se desarrollarán nuevas funcionalidades relacionadas con el aprendizaje.
-\par Las historias planificadas para el tercer sprint han sido:
+Este sprint, dado que es uno de los finales, incorporará distintas mejoras de la \gls{ux} y arreglos de bugs y errores. También se desarrollarán nuevas funcionalidades relacionadas con el aprendizaje. Por otro lado, la cantidad de los puntos de historia planificados se expande hasta 30 puntos para abordar todas las funcionalidades planificadas.
+\par Las historias planificadas para el cuarto sprint han sido:
 \begin{enumerate}
 	\item \textbf{019 - Botón de compartir resultados:} Como usuario, quiero poder compartir mis resultados con mis compañeros o con mi profesor de música.\textbf {3 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
@@ -356,7 +356,25 @@ Este sprint, dado que es uno de los finales, incorporará distintas mejoras de l
 	{\small \textit{Criterios de aceptación:}} \\
 	Se ha creado el módulo de reconocimiento de ritmos.
 	
+	\item \textbf{023 - Página de entrenamiento del oído perfecto:} Como usuario, quiero tener una herramienta que me permita entrenar mi oído perfecto.  \textbf{7 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Se ha creado una nueva página que incorpora el reconocimiento de una nota en el teclado del piano.
 \end{enumerate}
+
+\subsection{Historia 019: Botón de compartir resultados}
+Se ha añadido la opción de compartir los resultados una vez terminado el intento de una sección. En la página de los resultados, también se ha añadido el nombre del usuario y la fecha de la realización para identificar el intento: servirá para compartirlo con los amigos, con el profesor de la escuela de música. La biblioteca usada convierte la página HTML en una imagen PNG, y el módulo de capacitor se encarga del API que permite compartir la imagen a través de las redes sociales. Por otro lado, la funcionalidad de compartir los resultados en el navegador descarga la imagen en el ordenador y permite que el usuario la maneje.
+
+\subsection{Historia 020: Entrenador libre}
+La nueva funcionalidad importante de la aplicación es el entrenador libre. Permitirá que el usuario pueda repasar los conocimientos y/o entrenarse antes de enfrentarse a las pruebas de la página principal. Esto permitirá que el usuario tenga menos presión a la hora de realizar los ejercicios, sabiendo que si está en el modo libre su intento no se evaluará.
+
+\subsection{Historia 023 - Entrenamiento del oído perfecto}
+Se ha creado una nueva página, que junto al entrenador libre, permitirá al usuario entrenar los conceptos más difíciles de una forma que le haga menos estrés que la realización de las pruebas evaluadas. Dado que la página pretende entrenar el oído perfecto, se ha simplificado al máximo. El usuario dispone de 2 reproducciones del audio, despues de las cuales, ha de identificar la nota en un teclado del piano. El teclado es interactivo y permite escuchar la nota antes de elegirla. 
+
+\subsection{Historia 021: Generación de sonidos -  Ritmos (Python)}
+
+
+\subsection{Historia 022: Módulo de reconocimiento de ritmos}
+
 %\section{Inserción de código}
 
 %A veces tendrás que insertar algún pedazo de código fuente para explicar algo relacionado con él. No sustituyas explicaciones con códigos enormes. Si pones algo de código en tu TFG que sea para demostrar algo o explicar alguna solución.
