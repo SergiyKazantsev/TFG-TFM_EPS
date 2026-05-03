@@ -11,6 +11,8 @@
 % Si se desea que no haya página en blanco entre capítulos añadir "openany" en los parámetros de la clase. Sino siempre los capítulos empezarán en página impar.
 \documentclass[a4paper,11pt,titlepage, openany]{scrbook}
 \usepackage{musicography}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
 \KOMAoption{toc}{bib,chapterentryfill} % Opciones del índice
 \usepackage{scrhack} % Previene algunos errores
 % Paquete de formato para scrbook. Con marcas, linea-separador superior e inferior
@@ -288,4 +290,30 @@
 \newtheorem{teorema}{Teorema}[chapter]
 \newtheorem{ejemplo}{Ejemplo}[chapter]
 \newtheorem{definicion}{Definición}[chapter]
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	showspaces=false,                
+	showstringspaces=false,
+	language=Python
+}
+
+\lstset{style=mystyle}
 
