@@ -59,9 +59,10 @@ La primera tarea que se hizo fue la construcción del entorno de Backend (Histor
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=10.5cm]{archivos/bd.drawio.png}
-	\caption{Diagrama UML de la estructura de la Base de Datos. (versión 1)}
+	\caption{Diagrama UML de la estructura de la Base de Datos.}
 	\label{fig:bd-uml}
 \end{figure}
+
 \subsection{Historia 001: Walking Skeleton}
 Esta tarea se refiere a la creación de un proyecto base, el prueba adicional de las herramientas ofrecidas por Angular e Ionic, el uso de los componentes del mismo. Para ello, se ha creado un proyecto ejemplo que es una aplicación de la lista de compra, que muestra el correcto funcionamiento de los servicios y los componentes. El siguiente paso ha sido la implementación de la comunicación entre la aplicación y el servidor. Se ha implementado un módulo básico de inicio de sesión (registro no), para poder comprobar el funcionamiento del login.
 \par Por otro lado, se han creado dos páginas para el usuario logeado, una de inicio que muestra una lista de la compra, y la otra que se refiere al perfil del usuario actual.
@@ -186,7 +187,7 @@ El módulo de reconocimiento de intervalos se ha dividido en tres lecciones sepa
 \subsection{Burn-up chart del sprint 2.}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{archivos/screenshot005}
+	\includegraphics[width=1.0\linewidth]{archivos/screenshot005}
 	\caption[Revisión]{Burn-up chart del sprint 2.}
 	\label{fig:screenshot005}
 \end{figure}
@@ -338,7 +339,7 @@ Debido a que la aplicación se implementa tanto para Web como para Android, tien
 Este sprint, dado que es uno de los finales, incorporará distintas mejoras de la \gls{ux} y arreglos de bugs y errores. También se desarrollarán nuevas funcionalidades relacionadas con el aprendizaje. Por otro lado, la cantidad de los puntos de historia planificados se expande hasta 30 puntos para abordar todas las funcionalidades planificadas.
 \par Las historias planificadas para el cuarto sprint han sido:
 \begin{enumerate}
-	\item \textbf{019 - Botón de compartir resultados:} Como usuario, quiero poder compartir mis resultados con mis compañeros o con mi profesor de música.\textbf {3 puntos de historia} \\
+	\item \textbf{019 - Botón de compartir resultados:} Como usuario, quiero poder compartir mis resultados con mis compañeros o con mi profesor de música.\textbf {1 punto de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
 	Se ha creado un botón "Compartir resultados" al finalizar una lección. Se podrá compartir a través de redes sociales una imagen que incluirá la fecha y el nombre del usuario.
 	
@@ -359,6 +360,10 @@ Este sprint, dado que es uno de los finales, incorporará distintas mejoras de l
 	\item \textbf{023 - Página de entrenamiento del oído perfecto:} Como usuario, quiero tener una herramienta que me permita entrenar mi oído perfecto.  \textbf{7 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
 	Se ha creado una nueva página que incorpora el reconocimiento de una nota en el teclado del piano.
+	
+	\item \textbf{024 - Mejoras y arreglos de bugs:} Como usuario, quiero que la aplicación sea lo más intuitiva posible y que no haya errores ni bugs que afecten a mi experiencia. \textbf{7 puntos de historia} \\
+	{\small \textit{Criterios de aceptación:}} \\
+	Probar y mejorar la \gls{ux} al máximo. Implica la mejora de fluidez y pruebas manuales exhaustivas.
 \end{enumerate}
 
 \subsection{Historia 019: Botón de compartir resultados}
@@ -371,9 +376,42 @@ La nueva funcionalidad importante de la aplicación es el entrenador libre. Perm
 Se ha creado una nueva página, que junto al entrenador libre, permitirá al usuario entrenar los conceptos más difíciles de una forma que le haga menos estrés que la realización de las pruebas evaluadas. Dado que la página pretende entrenar el oído perfecto, se ha simplificado al máximo. El usuario dispone de 2 reproducciones del audio, despues de las cuales, ha de identificar la nota en un teclado del piano. El teclado es interactivo y permite escuchar la nota antes de elegirla. 
 
 \subsection{Historia 021: Generación de sonidos -  Ritmos (Python)}
-
+Se ha generado los ritmos 4/4 que incluyen notas y silencios de distintas longitudes. Cada audio incluye un metrónomo para dar el ritmo, seguido por las notas que el usuario tendrá que identificar. 
 
 \subsection{Historia 022: Módulo de reconocimiento de ritmos}
+Se ha creado el nuevo módulo de reconocimiento, innovativo respecto al rest de la aplicación. Para identificar cada secuencia de notas se utiliza una forma de aprendizaje que se denomina "dictado musical rítmico". Dentro de este ejercicio, el objetivo del alumno es escuchar la secuencia e intentar repetirla dado un conjunto de notas. La forma final de la sección es la siguiente:
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0.3pt} % Made slightly thicker so it's visible
+	\setlength{\fboxsep}{0pt}
+	\begin{subfigure}{0.35\linewidth}
+		\centering
+		% Wrap the command here:
+		\fbox{\includegraphics[width=0.7\linewidth]{archivos/screenshot011}}
+		\label{fig:screenshot011}
+		\caption{}
+	\end{subfigure}
+	\hfill 
+	\begin{subfigure}{0.35\linewidth}
+		\centering
+		% And wrap it here:
+		\fbox{\includegraphics[width=0.7\linewidth]{archivos/screenshot012}}
+		\label{fig:screenshot012}
+		\caption{}
+	\end{subfigure}
+	\caption{Pantallas del ejercicio de ritmos (Android)}
+\end{figure}
+
+\subsection{Historia 023: Mejoras y arreglos de bugs}
+Dentro de esta historia se han buscado distintos errores/bugs e inconsistencias de la interfaz del usuario. Para ello, se ha optado por la realización de las pruebas manuales involucrando personas voluntarias que han comentado su experiencia sobre su experiencia de uso de la aplicación. Se han añadido las explicaciones para el entrenador libre y el modo piano, los errores de reproducción de los audios y distintas mejoras de la interfaz para la mayor compatibilidad con varios dispositivos móviles.
+
+\subsection{Burn-up chart del sprint 4.}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{archivos/screenshot013}
+	\caption{Burn-up chart del sprint 4.}
+	\label{fig:screenshot013}
+\end{figure}
 
 %\section{Inserción de código}
 
