@@ -81,7 +81,7 @@ Esta historia tenía como objetivos mejorar la página de login, implementar la 
 Se ha decidido implementar el módulo de traducciones con antelación para evitar traducir la aplicación cuando esta esté en las fases avanzadas de desarrollo, para así implementar las traducciones gradualmente y disminuir la carga de trabajo. Para las traducciones, se ha usado la biblioteca de Transloco de Angular que permite especificar las traducciones en un fichero JSON.
 Las traducciones disponibles en la aplicación serán: el inglés, el castellano y el ucraniano.
 
-\subsection{Historia 007: Servicio de evaluación}
+\subsection{Historia 006: Servicio de evaluación}
 Esta historia tenía como objetivo implementar la comunicación básica entre backend y frontend con el fin de obtener los datos de secciones y ejercicios. Una vez finalizada la historia, pulsando un botón se podía obtener el ejercicio, evaluarlo y registrar el intento.
 
 \subsection{Historia 004: Integración de sonidos}
@@ -141,7 +141,20 @@ Revisando el progreso del primer sprint, se puede observar un buen progreso de d
 \subsection{Historia 008: Módulo de reconocimiento de alturas.}
 Haciendo uso de las notas generadas en la historia 003, se ha creado el primer módulo introductor que permite al usuario entrenar la capacidad básica del reconocimiento musical. Cada ejercicio se genera de forma aleatoria, seleccionando una nota base y otra a una determinada distancia, de 1 a 10 semitonos.
 
-\subsection{Historia 010 - Módulo de reconocimiento de los tonos y semitonos.}
+\par Para poder entender mejor el funcionamiento de los ejercicios que se realizan en la página principal de la aplicación, se proporciona el siguiente diagrama de secuencia:
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0.1pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=1.0\linewidth]{archivos/diagrama.drawio.png}}
+	\caption{Diagrama de secuencia: Realización de una sección.}
+	\label{fig:diagrama-secuencia}
+\end{figure}
+El componente sección es el encargado de inicializar y obtener los datos de cada uno de los ejercicios en el servicio de datos, e itera sobre la colección de ejercicios que obtiene. El servicio de datos genera unas opciones de respuesta aleatorias, obteniendo los audios desde el directorio \textit{Assets}, dependiendo de la sección elegida. 
+\par Cada ejercicio, dentro de sí, muestra las opciones de respuesta de forma visual. Una vez que el usuario elige una opción, el evento de respuesta se devuelve al componente padre (Sección), y este componente guarda la cantidad de respuestas correctas.
+\par Una vez que se haya llegado a la cantidad necesaria de preguntas respondidas, el intento se registra con la cantidad de respuestas correctas, y, en el caso de que el usuario haya llegado a la nota mínima, se le abre la sección siguiente.
+
+\subsection{Historia 010: Módulo de reconocimiento de los tonos y semitonos.}
 Este módulo es la continuación del entrenamiento de reconocimiento de las notas. Esta vez, usando los audios generados previamente, se generan unos ejercicios aleatorios seleccionando una nota base, y la otra de 1 a 2 semitonos de distancia. El objetivo del usuario se determinar esta distancia.
 
 \subsection{Historia 012: Diseñar el logotipo y los iconos.}
@@ -361,9 +374,9 @@ Este sprint, dado que es uno de los finales, incorporará distintas mejoras de l
 	{\small \textit{Criterios de aceptación:}} \\
 	Se ha creado una nueva página que incorpora el reconocimiento de una nota en el teclado del piano.
 	
-	\item \textbf{024 - Mejoras y arreglos de bugs:} Como usuario, quiero que la aplicación sea lo más intuitiva posible y que no haya errores ni bugs que afecten a mi experiencia. \textbf{7 puntos de historia} \\
+	\item \textbf{024 - Pruebas y arreglos:} Como usuario, quiero que la aplicación sea lo más intuitiva posible y que no haya errores ni bugs que afecten a mi experiencia. \textbf{7 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Probar y mejorar la \gls{ux} al máximo. Implica la mejora de fluidez y pruebas manuales exhaustivas.
+	Realizar pruebas manuales exhaustivas, implicando voluntarios probadores.
 \end{enumerate}
 
 \subsection{Historia 019: Botón de compartir resultados}
@@ -372,7 +385,7 @@ Se ha añadido la opción de compartir los resultados una vez terminado el inten
 \subsection{Historia 020: Entrenador libre}
 La nueva funcionalidad importante de la aplicación es el entrenador libre. Permitirá que el usuario pueda repasar los conocimientos y/o entrenarse antes de enfrentarse a las pruebas de la página principal. Esto permitirá que el usuario tenga menos presión a la hora de realizar los ejercicios, sabiendo que si está en el modo libre su intento no se evaluará.
 
-\subsection{Historia 023 - Entrenamiento del oído perfecto}
+\subsection{Historia 023: Entrenamiento del oído perfecto}
 Se ha creado una nueva página, que junto al entrenador libre, permitirá al usuario entrenar los conceptos más difíciles de una forma que le haga menos estrés que la realización de las pruebas evaluadas. Dado que la página pretende entrenar el oído perfecto, se ha simplificado al máximo. El usuario dispone de 2 reproducciones del audio, despues de las cuales, ha de identificar la nota en un teclado del piano. El teclado es interactivo y permite escuchar la nota antes de elegirla. 
 
 \subsection{Historia 021: Generación de sonidos -  Ritmos (Python)}
@@ -403,7 +416,7 @@ Se ha creado el nuevo módulo de reconocimiento, innovativo respecto al rest de 
 \end{figure}
 
 \subsection{Historia 023: Mejoras y arreglos de bugs}
-Dentro de esta historia se han buscado distintos errores/bugs e inconsistencias de la interfaz del usuario. Para ello, se ha optado por la realización de las pruebas manuales involucrando personas voluntarias que han comentado su experiencia sobre su experiencia de uso de la aplicación. Se han añadido las explicaciones para el entrenador libre y el modo piano, los errores de reproducción de los audios y distintas mejoras de la interfaz para la mayor compatibilidad con varios dispositivos móviles.
+Dentro de esta historia se han buscado distintos errores/bugs e inconsistencias de la interfaz del usuario. Para ello, se ha optado por la realización de las pruebas manuales involucrando personas voluntarias que han comentado su experiencia sobre su experiencia de uso de la aplicación. Se han arreglado los errores de reproducción de los audios, también distintas inconsistencias e incompatibilidades entre las dos plataformas.
 
 \subsection{Burn-up chart del sprint 4.}
 \begin{figure}[H]
@@ -411,6 +424,65 @@ Dentro de esta historia se han buscado distintos errores/bugs e inconsistencias 
 	\includegraphics[width=0.6\linewidth]{archivos/screenshot013}
 	\caption{Burn-up chart del sprint 4.}
 	\label{fig:screenshot013}
+\end{figure}
+
+\section{Mejoras finales}
+Antes de mostrar los resultados, cabe mencionar las distintas mejoras que no se han comentado durante el proceso de desarrollo; algunas de ellas se han implementado para facilitar la realización de alguna historia de usuario, otras se han hecho con el fin de mejorar la seguridad o la experiencia del usuario. Todas las mejoras se han considerado importantes para mencionarlas una vez alcanzados los objetivos generales.
+\subsection{Captcha}
+Se ha implementado la protección contra bots/verificación del usuario a través del uso de hCaptcha, integrando esta herramienta con API interna de Supabase. Para ello, se ha creado un proyecto en el sitio de hCaptcha, obteniendo, por un lado, un código público, y por otro, un secreto que se guarda en Supabase. Como resultado, todas las llamadas de inicio de sesión, registro y restablecimiento de contraseña requieren un token que se obtiene al completar un Captcha. \citep{supabase-captcha-2026, hcaptcha-2026}
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0.3pt} % Made slightly thicker so it's visible
+	\setlength{\fboxsep}{0pt}
+	\begin{subfigure}{0.30\linewidth}
+		\centering
+		% Wrap the command here:
+		\fbox{\includegraphics[width=0.7\linewidth]{archivos/screenshot014}}
+		\label{fig:screenshot014}
+		\caption{}
+	\end{subfigure}
+	\hfill 
+	\begin{subfigure}{0.30\linewidth}
+		\centering
+		% And wrap it here:
+		\fbox{\includegraphics[width=0.7\linewidth]{archivos/screenshot015}}
+		\label{fig:screenshot015}
+		\caption{}
+	\end{subfigure}
+	\caption{Verificación Captcha al iniciar sesión (Android)}
+\end{figure}
+\subsection{Logros del usuario}
+Para que el usuario pueda hacer un mejor seguimiento del progreso, a mediados del sprint 4, en la página del perfil se ha implementado una sección de logros del usuario, que muestra el mejor resultado dentro de cada lección y comparado con la nota mínima que se tiene que obtener. Si el resultado del usuario es mayor o igual a la nota mínima, se le muestra una medalla. Si no se ha conseguido alcanzar la nota mínima, el mejor intento se muestra en rojo. El resultado ha sido el siguiente:
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0.3pt}
+	\setlength{\fboxsep}{0pt}
+	\fbox{\includegraphics[width=0.2\linewidth]{archivos/screenshot016}}
+	\caption{Logros del usuario\protect\footnotemark}
+	\label{fig:screenshot016}
+\end{figure}
+\footnotetext{Debido a que es un usuario de prueba, las secciones no han sido abiertas en el orden progresivo como habría sido en el caso de un usuario real.}
+\subsection{Guías para el entrenador libre y el modo piano}
+Debido a que el entrenador libre y el modo piano no resultaban tan intuitivos en comparación con los ejercicios principales, se ha decidido crear una pequeña guía a la cual un usuario puede acceder en cualquier momento. Para ello, se ha añadido un botón con icono del signo de interrogación, al pulsar el cual se muestra una ventana explicando el funcionamiento del módulo. Dentro de la aplicación, se ve de la siguiente manera:
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0.3pt} % Made slightly thicker so it's visible
+	\setlength{\fboxsep}{0pt}
+	\begin{subfigure}{0.38\linewidth}
+		\centering
+		% Wrap the command here:
+		\fbox{\includegraphics[width=0.7\linewidth]{archivos/screenshot017}}
+		\label{fig:screenshot017}
+		
+	\end{subfigure}
+	\hfill 
+	\begin{subfigure}{0.38\linewidth}
+		\centering
+		% And wrap it here:
+		\fbox{\includegraphics[width=0.7\linewidth]{archivos/screenshot018}}
+		\label{fig:screenshot018}
+	\end{subfigure}
+	\caption{Guías para los modos no evaluables.}
 \end{figure}
 
 %\section{Inserción de código}
