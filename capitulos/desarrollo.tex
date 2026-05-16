@@ -11,7 +11,7 @@ En este capítulo se documenta todo el proceso de desarrollo del proyecto, donde
 \section{Sprint 1}
 El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello y el repositorio de GitHub. Para el tablero Trello, se han añadido los \textit{Power-Ups} correspondientes a los sprints de Scrum y los puntos de historia de usuario. Los \textit{Power-Ups} son extensiones que permiten añadir nuevas funcionalidades al tablero, como en este caso hacer el seguimiento del sprint y visualizar los puntos de historia de cada una de las tarjetas.
 \par Asimismo, se ha procedido a crear las historias de usuario para el Sprint 1, que correspondían a los primeros pasos a implementar dentro de la aplicación. Las historias seleccionadas para el sprint han sido:
-\begin{enumerate}
+\begin{enumerate}[noitemsep=10pt, topsep=10pt]
 	\item \textbf{001 Walking skeleton:} Como desarrollador, quiero implementar un flujo mínimo que permita comprobar el correcto funcionamiento del programa.  \textbf{5 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
 	Se ha creado una página sencilla en Ionic y Angular. Se comprueba el funcionamiento del login (no registro).
@@ -38,27 +38,35 @@ El primer sprint empezó el día 16.03.2026 con la creación del tablero Trello 
 	\item \textbf{005 Estructura del Backend:} Como desarrollador, quiero estructurar mi base de datos para poder organizar todas las entidades, usuarios y lecciones musicales. \textbf{3 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}}
 	\begin{itemize}
-		\item Diseñar una estructura completa del backend
+		\item Diseñar una estructura completa del backend.
 		\item Crear todas las tablas de BD necesarias.
+		\item Crear las reglas y restricciones en la BD.
 	\end{itemize}
 	
 	\item \textbf{006 Servicio de Evaluación de Respuestas:} Como usuario, quiero que mis respuestas sean comparadas con la solución y evaluadas. \textbf{1 punto de historia} \\
 	{\small \textit{Criterios de aceptación:}}
 	\begin{itemize}
 		\item Crear un servicio EvaluacionService para comprobar las respuestas.
-		\item Las respuestas se comprueban comunicándose con Supabase.
+		\item El resultado se verifica comunicándose con Supabase.
+		\item El intento se registra en la BD.
 	\end{itemize}
 	
 	\item \textbf{007 Modulo de internacionalización i18N:} Como usuario, quiero que la aplicación ofrezca la posibilidad de cambiar el idioma para adaptarse a mi idioma nativo. \textbf{2 puntos de historia} \\
 	{\small \textit{Criterios de aceptación:}} \\
-	Se han incluido tres módulos de traducciones: Inglés, Castellano, Ucraniano.
+	Se han incluido tres módulos de traducciones:
+	\begin{itemize}
+		\item Castellano.
+		\item Inglés.
+		\item Ucraniano.
+	\end{itemize}
 \end{enumerate}
+
 \subsection{Historia 005: Estructura del Backend}
 La primera tarea que se hizo fue la construcción del entorno de Backend (Historia nº005): empezando con el registro en la plataforma Supabase y acabando con la definición de las tablas, relaciones y reglas de acceso. Las herramientas que proporciona Supabase han sido suficientes para tener el servidor básico en unas 5-6 horas.
 \par El diseño UML de la base de datos es el siguiente:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=10.5cm]{archivos/bd.drawio.png}
+	\includegraphics[width=1.0\linewidth]{archivos/bd.drawio.png}
 	\caption{Diagrama UML de la estructura de la Base de Datos.}
 	\label{fig:bd-uml}
 \end{figure}
@@ -71,7 +79,7 @@ Esta tarea se refiere a la creación de un proyecto base, el prueba adicional de
 Esta historia tenía como objetivos mejorar la página de login, implementar la del registro y, por otro lado, finalizar la funcionalidad de la edición de perfil del usuario. Se han creado nuevas tablas SQL auxiliares para almacenar los datos adicionales del usuario que se registra, como es el nombre y apellido. \citep{supabase-user-management-2026}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{archivos/screenshot_supabase}
+	\includegraphics[width=1.0\linewidth]{archivos/screenshot_supabase}
 	\caption{Usuarios registrados, vistos dentro de Supabase.}
 	\label{fig:screenshotsupabase}
 \end{figure}
@@ -111,7 +119,7 @@ Se ha generado un script de Python que permite generar notas a partir de un fich
 	\caption{Burn-up chart del sprint 1.}
 	\label{fig:sprint1}
 \end{figure}
-
+\newpage
 \section{Sprint 2}
 Revisando el progreso del primer sprint, se puede observar un buen progreso de desarrollo e implementación de las historias, aunque ha habido una "meseta" de poco progreso debido al estudio de las otras materias. Por ello, se ha decidido ampliar el volumen de los puntos de historia hasta los 25 puntos, para aprovechar mejor el sprint siguiendo un desarrollo constante.
 \par Las historias planificadas para el segundo sprint han sido:

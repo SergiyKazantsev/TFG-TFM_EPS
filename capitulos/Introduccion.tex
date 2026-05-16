@@ -19,7 +19,7 @@ Las aplicaciones de dispositivos móviles se han convertido en una parte importa
 %Este texto está escrito pensando en orientar a los alumnos que usarán \LaTeX~para escribir su \gls{tfg} y \gls{tfm}. 
 %\\
 %\par Contiene información útil para aquellos que no tengan experiencia previa en \LaTeX~así como algunos datos acerca de cómo escribir mejor su \gls{tfg}.
-%A continuación, se ofrece una copia de la información que hay en el libro de estilo para la realización de los \gls{tfg} de la EPS de la Universidad de Alicante.
+%A continuación, se ofrece una copia de la información quFe hay en el libro de estilo para la realización de los \gls{tfg} de la EPS de la Universidad de Alicante.
 %
 %En los capítulos siguientes encontrarás ejemplos de muchas de las cosas que se pueden realizar con \LaTeX. Con un poco de paciencia, estudia cómo se hacen estas cosas y luego aplícalas en tus documentos.
 
@@ -78,11 +78,21 @@ Las notas musicales son sonidos con una determinada \gls{hz}. La altura de una n
 Para la mayoría de los estudiantes del conservatorio, el piano se convierte en el primer instrumento con el cual	se acostumbran a lo largo de su formación musical. Incluso si el estudiante decide especializarse en otro instrumento, el piano resulta fundamental para impartir las asignaturas de teoría musical y el solfeo \footnote{En este \gls{tfg}, el solfeo se refiere al entrenamiento del oído interno y a la lectura de las partituras}.
 \par Para el desarrollo de una aplicación de entrenamiento del oído, el piano es una opción adecuada, ya que es un instrumento que se puede virtualizar y repsesentar las notas musicales con precisión y exactitud, incluso cuando el usuario no dispone de periféricos.
 \subsection{Octavas}
-El piano dispone de 88 teclas, cada una de las cuales tiene una frecuecia determinada (desde 20 {hz} y hasta 20000 \gls{hz}). La distancia mínima en frecuencia/altura de cada tecla siempre es la misma, y se denomina "semitono". Gracias a los tonos y semitonos, se puede saber exactamente la distancia entre cada nota, por ejemplo: entre Do y Re la distancia es de un tono, entre Do y Do\musSharp{} la distancia es de un semitono (ver figura \ref{fig:octavas}).
+El piano dispone de 88 teclas, cada una de las cuales tiene una frecuencia determinada (desde 20 \gls{hz} y hasta 20000 \gls{hz}). La distancia mínima en frecuencia/altura de cada tecla siempre es la misma, y se denomina "semitono". Gracias a los tonos y semitonos, se puede saber exactamente la distancia entre cada nota, por ejemplo: entre Do y Re la distancia es de un tono, entre Do y Do\musSharp{} la distancia es de un semitono (ver figura \ref{fig:octavas}). Matemáticamente, un semitono de distancia corresponde a la multiplicación de una determinada frecuencia por $2^{n/12}$, donde $n$ es el número de semitonos que se quiere añadir a la frecuencia, y 12 corresponde a los 12 semitonos de una octava. 
+
+Por lo cual, dada una frecuencia $h$:
+
+\begin{equation}
+	h_{\text{+1 semitono}} = h \cdot 2^{1/12} \approx h \cdot 1.06
+\end{equation}
+
+\begin{equation}
+	h_{\text{+1 octava}} = h \cdot 2^{12/12} = h \cdot 2
+\end{equation}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1.0\textwidth]{archivos/octavas}
+	\includegraphics[width=0.95\textwidth]{archivos/octavas}
 	\caption{Las octavas del piano \citep{octavas}}
 	\label{fig:octavas}
 \end{figure}
@@ -181,7 +191,7 @@ Las composiciónes musicales occidentales están formados por fragmentos de una 
 			\bottomrule
 		\end{tabular}
 	}
-	\caption{Las duraciones de distintas figuras.}
+	\caption{Las duraciones de distintas figuras para el compás \musFig{4 4}, el cual será utilizado en este \gls{tfg}.}
 	\label{tablaritmo}
 \end{table}
 %\section{Estructura de un \glsentryshort{tfg}}
